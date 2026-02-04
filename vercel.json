@@ -1,21 +1,23 @@
 {
     "version": 2,
+    "functions": {
+        "api/index.ts": {
+            "runtime": "vercel-node@latest",
+            "memory": 1024
+        }
+    },
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "/api/index.ts"
+            "source": "/(assets|figmaAssets)/(.*)",
+            "destination": "/client/public/$1/$2"
         },
         {
             "source": "/favicon.ico",
             "destination": "/client/public/favicon.ico"
         },
         {
-            "source": "/assets/(.*)",
-            "destination": "/dist/public/assets/$1"
-        },
-        {
-            "source": "/figmaAssets/(.*)",
-            "destination": "/dist/public/figmaAssets/$1"
+            "source": "/api/(.*)",
+            "destination": "/api/index.ts"
         },
         {
             "source": "/(.*)",
