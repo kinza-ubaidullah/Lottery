@@ -19,7 +19,7 @@ export const LotteryDrawCard: React.FC<LotteryDrawCardProps> = ({
     timer = "09:44"
 }) => {
     // Style mappings based on status
-    const statusConfig = {
+    const statusConfig = ({
         "Expired": {
             badgeBg: "bg-[#242D35]",
             badgeBorder: "none",
@@ -64,7 +64,17 @@ export const LotteryDrawCard: React.FC<LotteryDrawCardProps> = ({
             cardBorder: "border-white/5",
             borderGradient: null
         }
-    }[status];
+    } as any)[status] || {
+        badgeBg: "bg-[#242D35]",
+        badgeBorder: "none",
+        btnBg: "#141A20",
+        btnBorder: "none",
+        btnText: "Participate",
+        btnTextColor: "text-[#525D68]",
+        cardBg: "#0F1419",
+        cardBorder: "border-white/5",
+        borderGradient: null
+    };
 
     return (
         <div

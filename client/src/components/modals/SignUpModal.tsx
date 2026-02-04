@@ -24,7 +24,10 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRec
                 - Responsive Max width: Tighter margins on mobile (calc(100%-16px))
                 - Scrolling enabled for small screens
             */}
-            <DialogContent className="max-w-[calc(100%-16px)] sm:max-w-[620px] p-0 bg-transparent border-none overflow-y-auto custom-scrollbar max-h-[85vh] focus:outline-none shadow-none block">
+            <DialogContent
+                aria-describedby={undefined}
+                className="max-w-[calc(100%-16px)] sm:max-w-[620px] p-0 bg-transparent border-none overflow-y-auto custom-scrollbar max-h-[85vh] focus:outline-none shadow-none block"
+            >
 
                 <div className="flex flex-col gap-3 w-full pb-6">
 
