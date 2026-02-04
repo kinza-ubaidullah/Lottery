@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 export const AppHeaderSection = (): JSX.Element => {
   return (
     <header className="relative w-full border-b border-[#242d35] bg-[#12171d] z-50">
-      <div className="w-full max-w-[1280px] mx-auto h-[60px] md:h-[80px] flex items-center justify-between px-4 md:px-6">
-        <h1 className="font-['Luckiest_Guy'] text-white text-[24px] md:text-[40px] tracking-tight leading-none uppercase">
+      {/* Tightened mobile padding (px-3) and height consistency */}
+      <div className="w-full max-w-[1280px] mx-auto h-[60px] md:h-[80px] flex items-center justify-between px-3 md:px-6">
+        <h1 className="font-['Luckiest_Guy'] text-white text-[28px] md:text-[40px] tracking-tight leading-none uppercase">
           LOTTERY
         </h1>
 
-        <div className="flex items-center gap-2 md:gap-3">
+        {/* Tightened gap on mobile (gap-1.5) to fit all buttons on small screens */}
+        <div className="flex items-center gap-1.5 md:gap-3">
           <div className="flex items-center">
             <Button
               variant="ghost"
@@ -29,21 +31,22 @@ export const AppHeaderSection = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 md:gap-2">
+            {/* Reduced icon button size on mobile (w-9 h-9) for better fit */}
             <Button
               variant="ghost"
               size="icon"
-              className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[linear-gradient(180deg,#00AAFF_0%,#90DAFF_100%)] hover:opacity-90 overflow-hidden"
+              className="w-9 h-9 md:w-12 md:h-12 rounded-xl bg-[linear-gradient(180deg,#00AAFF_0%,#90DAFF_100%)] hover:opacity-90 overflow-hidden"
             >
-              <img src="/figmaAssets/image-184.png" className="w-6 h-6 object-contain" alt="Globe" />
+              <img src="/figmaAssets/image-184.png" className="w-5 h-5 md:w-6 md:h-6 object-contain" alt="Globe" />
             </Button>
 
             <Button
               variant="ghost"
               size="icon"
-              className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[linear-gradient(180deg,#9A76FF_0%,#C8B4FF_100%)] hover:opacity-90"
+              className="w-9 h-9 md:w-12 md:h-12 rounded-xl bg-[linear-gradient(180deg,#9A76FF_0%,#C8B4FF_100%)] hover:opacity-90"
             >
-              <img src="/figmaAssets/image-183.png" className="w-6 h-6 object-contain" alt="Chat" />
+              <img src="/figmaAssets/image-183.png" className="w-5 h-5 md:w-6 md:h-6 object-contain" alt="Chat" />
             </Button>
           </div>
         </div>
