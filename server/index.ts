@@ -12,6 +12,7 @@ app.get("/favicon.ico", (_req, res) => {
   res.sendFile(path.resolve(process.cwd(), "dist", "public", "favicon.ico"));
 });
 
+// Middleware and routes setup
 app.use((req, res, next) => {
   const start = Date.now();
   const requestPath = req.path;
@@ -42,35 +43,23 @@ app.use((req, res, next) => {
   next();
 });
 
-// Register routes and static serving for all environments
+// Initialization
 (async () => {
-  const server = await registerRoutes(app);
-
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-    res.status(status).json({ message });
-    throw err;
-  });
+  await registerRoutes(app);
 
   if (app.get("env") === "development") {
+    const { createServer } = await import("http");
+    const server = createServer(app);
     await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
-
-  // Only start the server listener if we are NOT on Vercel
-  // Vercel handles the server lifecycle automatically
-  if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
     const port = parseInt(process.env.PORT || '5000', 10);
-    server.listen({
-      port,
-      host: "0.0.0.0",
-    }, () => {
+    server.listen(port, "0.0.0.0", () => {
       log(`serving on port ${port}`);
     });
+  } else {
+    serveStatic(app);
   }
 })();
 
 export default app;
+
 
