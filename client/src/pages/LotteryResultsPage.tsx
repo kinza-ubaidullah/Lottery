@@ -109,33 +109,35 @@ export const LotteryResultsPage = (): JSX.Element => {
                         </CardContent>
                     </Card>
 
-                    <div className="w-full flex flex-col gap-8">
+                    <div className="w-full flex flex-col gap-8 px-1 sm:px-0">
                         <div className="flex flex-col items-center gap-6">
                             <div className="flex items-center gap-2">
-                                <span className="text-[#BDFF25] text-2xl drop-shadow-[0_0_8px_rgba(189,255,37,0.4)]">★</span>
-                                <h3 className="text-white text-2xl md:text-3xl font-[900] font-['Montserrat'] uppercase tracking-tight">Live & Upcoming</h3>
+                                <span className="text-[#BDFF25] text-xl sm:text-2xl drop-shadow-[0_0_8px_rgba(189,255,37,0.4)]">★</span>
+                                <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-[900] font-['Montserrat'] uppercase tracking-tight">Live & Upcoming</h3>
                             </div>
 
                             <Tabs defaultValue="completed" className="w-full flex flex-col items-center">
-                                <TabsList className="bg-[#141A20]/50 h-14 md:h-16 p-0 flex justify-center gap-2 rounded-xl overflow-hidden border border-white/5 w-full md:w-[600px] mb-12">
-                                    {["completed", "active", "pending"].map((tab) => (
-                                        <TabsTrigger
-                                            key={tab}
-                                            value={tab}
-                                            className="relative flex-1 h-full px-4 font-['Montserrat'] font-bold text-sm md:text-lg capitalize transition-all border-none rounded-none
-                                                       data-[state=active]:bg-transparent 
-                                                       data-[state=active]:bg-[linear-gradient(180deg,rgba(189,255,37,0.15)_0%,transparent_100%)] 
-                                                       data-[state=active]:text-white 
-                                                       text-[#525D68]"
-                                        >
-                                            {tab}
-                                            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#BDFF25] opacity-0 data-[state=active]:opacity-100 transition-opacity z-10 shadow-[0_0_10px_rgba(189,255,37,0.5)]" />
-                                        </TabsTrigger>
-                                    ))}
-                                </TabsList>
+                                <div className="w-full overflow-x-auto scrollbar-hide flex justify-center px-4">
+                                    <TabsList className="bg-[#141A20]/50 h-12 sm:h-14 md:h-16 p-0 flex justify-center gap-1 sm:gap-2 rounded-xl overflow-hidden border border-white/5 w-full max-w-[600px] mb-8 sm:mb-12 shrink-0">
+                                        {["completed", "active", "pending"].map((tab) => (
+                                            <TabsTrigger
+                                                key={tab}
+                                                value={tab}
+                                                className="relative flex-1 h-full px-2 sm:px-4 font-['Montserrat'] font-bold text-xs sm:text-base md:text-lg capitalize transition-all border-none rounded-none
+                                                           data-[state=active]:bg-transparent 
+                                                           data-[state=active]:bg-[linear-gradient(180deg,rgba(189,255,37,0.15)_0%,transparent_100%)] 
+                                                           data-[state=active]:text-white 
+                                                           text-[#525D68]"
+                                            >
+                                                {tab}
+                                                <div className="absolute bottom-0 left-0 right-0 h-[2px] sm:h-[3px] bg-[#BDFF25] opacity-0 data-[state=active]:opacity-100 transition-opacity z-10 shadow-[0_0_10px_rgba(189,255,37,0.5)]" />
+                                            </TabsTrigger>
+                                        ))}
+                                    </TabsList>
+                                </div>
 
                                 <TabsContent value="completed" className="w-full">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-20 w-full px-2">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-16 sm:gap-y-20 w-full px-2 sm:px-0">
                                         {completedDraws.map((draw, i) => (
                                             <LotteryResultsDetailCard
                                                 key={i}

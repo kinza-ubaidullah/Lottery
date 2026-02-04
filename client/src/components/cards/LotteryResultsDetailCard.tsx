@@ -44,7 +44,7 @@ export const LotteryResultsDetailCard: React.FC<LotteryResultsDetailCardProps> =
                 </div>
             </div>
 
-            {/* Stats Grid */}
+            {/* Stats Grid - Fixed to 2 columns for all screens */}
             <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-[#141A20] rounded-[16px] p-4 flex flex-col gap-1">
                     <span className="text-[#525D68] text-[13px] font-bold font-['Montserrat']">Prize Pool</span>
@@ -74,7 +74,7 @@ export const LotteryResultsDetailCard: React.FC<LotteryResultsDetailCardProps> =
             </div>
 
             {/* Breakdown Items */}
-            <div className="flex flex-wrap items-center gap-y-3 gap-x-4">
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-4 mb-4">
                 {breakdown.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-full bg-[#BDFF25] flex items-center justify-center">

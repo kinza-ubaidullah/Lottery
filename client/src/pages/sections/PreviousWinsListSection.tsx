@@ -78,61 +78,61 @@ export const PreviousWinsListSection = (): JSX.Element => {
         <div className="w-full relative">
           <Card className="bg-[#0D1115] border-none rounded-[32px] overflow-hidden relative">
             <CardContent className="p-0">
-              <div className="grid grid-cols-3 gap-2 px-3 py-5 md:px-10 md:py-6 mx-2 md:mx-6">
-                <div className="text-[10px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-start uppercase tracking-widest opacity-60">User</div>
-                <div className="text-[10px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-center uppercase tracking-widest opacity-60">Ticket price</div>
-                <div className="text-[10px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-end uppercase tracking-widest opacity-60">Profit</div>
+              <div className="grid grid-cols-3 gap-1 px-2 py-4 md:px-10 md:py-6 mx-1 md:mx-6">
+                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-start uppercase tracking-widest opacity-60">User</div>
+                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-center uppercase tracking-widest opacity-60">Ticket price</div>
+                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-end uppercase tracking-widest opacity-60">Profit</div>
               </div>
 
-              <div className="flex flex-col gap-2 pb-4 pt-1">
+              <div className="flex flex-col gap-1.5 pb-4 pt-0">
                 {winsData.map((win, index) => (
                   <div
                     key={index}
-                    className={`grid grid-cols-3 gap-2 items-center px-3 py-3 md:px-10 md:py-4 rounded-[16px] md:rounded-[20px] mb-1 mx-2 md:mx-6 ${index === 0
+                    className={`grid grid-cols-3 gap-1 items-center px-2 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[20px] mb-0.5 mx-1 md:mx-6 ${index === 0
                       ? "bg-[#11161B]"
                       : index % 2 !== 0
                         ? "bg-transparent"
                         : "bg-[#11161B]/50"
                       }`}
                   >
-                    <div className="flex items-center gap-2 md:gap-4 justify-start overflow-hidden">
-                      <Avatar className="w-7 h-7 md:w-12 md:h-12 rounded-full shrink-0">
+                    <div className="flex items-center gap-1.5 md:gap-4 justify-start overflow-hidden">
+                      <Avatar className="w-6 h-6 md:w-12 md:h-12 rounded-full shrink-0">
                         <AvatarImage src={win.avatar} alt="User" />
                         <AvatarFallback className="bg-transparent text-[#BDFF25]">U</AvatarFallback>
                       </Avatar>
-                      <span className="text-sm md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] truncate leading-none">
+                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] truncate leading-none">
                         {win.user}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-center gap-1.5 md:gap-2">
-                      <div className="relative w-[10px] h-[10px] md:w-[14px] md:h-[14px] shrink-0">
+                    <div className="flex items-center justify-center gap-1 md:gap-2">
+                      <div className="relative w-[8px] h-[8px] md:w-[14px] md:h-[14px] shrink-0">
                         <div
                           className="absolute rounded-full bg-[#FF8962]"
-                          style={{ width: '4.5px', height: '4.5px', top: '3.5px', left: '0.4px', opacity: 0.4 }}
+                          style={{ width: '3.5px', height: '3.5px', top: '2.5px', left: '0.4px', opacity: 0.4 }}
                         />
                         <div
                           className="absolute rounded-full bg-[#FF8962]"
-                          style={{ width: '6.5px', height: '6.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
+                          style={{ width: '5.5px', height: '5.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
                         />
                       </div>
-                      <span className="text-sm md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] whitespace-nowrap leading-none">
+                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] whitespace-nowrap leading-none">
                         {win.ticketPrice}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-end gap-1.5 md:gap-2">
-                      <div className="relative w-[10px] h-[10px] md:w-[14px] md:h-[14px] shrink-0">
+                    <div className="flex items-center justify-end gap-1 md:gap-2">
+                      <div className="relative w-[8px] h-[8px] md:w-[14px] md:h-[14px] shrink-0">
                         <div
                           className="absolute rounded-full bg-[#BEFF25]"
-                          style={{ width: '4.5px', height: '4.5px', top: '3.5px', left: '0.4px', opacity: 0.4 }}
+                          style={{ width: '3.5px', height: '3.5px', top: '2.5px', left: '0.4px', opacity: 0.4 }}
                         />
                         <div
                           className="absolute rounded-full bg-[#BEFF25]"
-                          style={{ width: '6.5px', height: '6.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
+                          style={{ width: '5.5px', height: '5.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
                         />
                       </div>
-                      <span className="text-sm md:text-xl font-semibold md:font-bold text-white font-['Outfit'] whitespace-nowrap leading-none">
+                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-white font-['Outfit'] whitespace-nowrap leading-none">
                         {win.profit}
                       </span>
                     </div>

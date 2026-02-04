@@ -5,6 +5,14 @@ module.exports = {
     "components/**/*.{ts,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "390px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1400px",
+    },
     extend: {
       fontFamily: {
         "10-bold": "var(--10-bold-font-family)",
