@@ -42,25 +42,26 @@ app.use((req, res, next) => {
   next();
 });
 
-export default app;
+// Register routes and static serving for all environments
+(async () => {
+  const server = await registerRoutes(app);
 
-if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
-  (async () => {
-    const server = await registerRoutes(app);
+  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+    const status = err.status || err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    res.status(status).json({ message });
+    throw err;
+  });
 
-    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-      const status = err.status || err.statusCode || 500;
-      const message = err.message || "Internal Server Error";
-      res.status(status).json({ message });
-      throw err;
-    });
+  if (app.get("env") === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
 
-    if (app.get("env") === "development") {
-      await setupVite(app, server);
-    } else {
-      serveStatic(app);
-    }
-
+  // Only start the server listener if we are NOT on Vercel
+  // Vercel handles the server lifecycle automatically
+  if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
     const port = parseInt(process.env.PORT || '5000', 10);
     server.listen({
       port,
@@ -68,6 +69,8 @@ if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
     }, () => {
       log(`serving on port ${port}`);
     });
-  })();
-}
+  }
+})();
+
+export default app;
 
