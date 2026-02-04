@@ -155,11 +155,13 @@ export const LatestBitcoinBlockSection = (): JSX.Element => {
           Prizes if your digit match
         </h3>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 md:gap-10">
           {prizeCards.map((card, index) => (
             <Card
               key={index}
-              className={`group relative flex flex-col items-center justify-center p-6 md:p-10 rounded-[32px] md:rounded-[40px] transition-all duration-300 shadow-2xl overflow-hidden w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-27px)] min-h-[260px] md:min-h-[320px]`}
+              className={`group relative flex flex-col items-center justify-center p-6 md:p-10 rounded-[32px] md:rounded-[40px] transition-all duration-300 shadow-2xl overflow-hidden w-full 
+                ${index === 4 ? "md:col-span-2" : "md:col-span-1"}
+                min-h-[220px] md:min-h-[320px] hover:scale-[1.02] cursor-default lg:w-[calc(33.333%-1.67rem)]`}
               style={{
                 background: 'linear-gradient(135deg, #0A0D11 0%, #13191F 40%, #1F262E 100%)',
                 border: '1px solid #252F38',
