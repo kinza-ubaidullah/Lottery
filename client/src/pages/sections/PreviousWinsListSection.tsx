@@ -51,92 +51,78 @@ const winsData = [
 
 export const PreviousWinsListSection = (): JSX.Element => {
   return (
-    <section className="w-full px-3 py-8">
-      <div className="flex items-center justify-center gap-2 mb-6">
-        <img
-          className="w-10 h-10"
-          alt="Champion"
-          src="/figmaAssets/champion.svg"
-        />
-        <h2 className="[font-family:'Montserrat',Helvetica] font-extrabold text-white text-base tracking-[-0.16px] leading-normal">
+    <section className="w-full py-8">
+      <div className="flex items-center gap-3 mb-8 px-2 justify-center lg:justify-start">
+        <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/20">
+          <img
+            className="w-8 h-8 md:w-10 md:h-10"
+            alt="Champion"
+            src="/figmaAssets/champion.svg"
+          />
+        </div>
+        <h2 className="text-xl md:text-2xl font-black text-white tracking-tight uppercase">
           Previous wins
         </h2>
       </div>
 
       <Tabs defaultValue="best-drops" className="w-full">
-        <TabsList className="w-full h-auto p-0 bg-transparent grid grid-cols-3 mb-4">
+        <TabsList className="w-full bg-white/5 p-1 rounded-2xl mb-8 border border-white/10 h-14">
           <TabsTrigger
             value="best-drops"
-            className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.19)_100%)] data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.19)_100%)] data-[state=inactive]:bg-transparent px-8 py-2.5 rounded-none border-0 font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)] data-[state=active]:text-white data-[state=inactive]:text-[#a1b4c6]"
+            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
           >
-            <span className="absolute top-[calc(50%+17px)] left-[calc(50%-64px)] w-[127px] h-8 bg-[#bdff25] rounded-[63.5px/16px] blur-[11.4px] opacity-0 data-[state=active]:opacity-100" />
-            <span className="relative z-10">Best drops</span>
+            Best drops
           </TabsTrigger>
           <TabsTrigger
             value="highest-wins"
-            className="px-8 py-2.5 rounded-none border-0 font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)] data-[state=active]:text-white data-[state=inactive]:text-[#a1b4c6] bg-transparent data-[state=active]:bg-transparent"
+            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
           >
-            Hishest wins
+            Highest wins
           </TabsTrigger>
           <TabsTrigger
             value="my-bets"
-            className="px-8 py-2.5 rounded-none border-0 font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)] data-[state=active]:text-white data-[state=inactive]:text-[#a1b4c6] bg-transparent data-[state=active]:bg-transparent"
+            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
           >
             My bets
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="best-drops" className="mt-0">
-          <Card className="bg-[#0d1115] border-0 rounded-[10px]">
-            <CardContent className="p-2 pt-3 pb-2">
-              <div className="grid grid-cols-[1fr_auto_auto] gap-4 mb-2 px-2 h-3">
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  User
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Ticket price
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Profit
-                </div>
+          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+            <CardContent className="p-0">
+              <div className="grid grid-cols-3 gap-4 px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest">User</div>
+                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest text-center">Ticket price</div>
+                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest text-right">Profit</div>
               </div>
 
               <div className="flex flex-col">
                 {winsData.map((win, index) => (
                   <div
                     key={index}
-                    className={`grid grid-cols-[1fr_auto_auto] gap-4 items-center h-[42px] px-2 rounded-[10px] ${win.bgClass}`}
+                    className={`grid grid-cols-3 gap-4 items-center px-6 py-4 transition-colors hover:bg-white/[0.03] ${index % 2 === 0 ? "bg-white/[0.01]" : ""}`}
                   >
-                    <div className="flex items-center gap-2.5">
-                      <Avatar className="w-6 h-6 rounded-lg">
-                        <AvatarImage src="/figmaAssets/frame-340-9.png" />
-                        <AvatarFallback className="rounded-lg bg-gray-700">
-                          {win.user.slice(0, 2)}
+                    <div className="flex items-center gap-3">
+                      <Avatar className="w-8 h-8 rounded-xl border border-white/10">
+                        <AvatarFallback className="rounded-xl bg-slate-800 text-[10px] font-bold text-white/60">
+                          {win.user.slice(2, 4)}
                         </AvatarFallback>
                       </Avatar>
-                      <span className="font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[#a1b4c6] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)]">
+                      <span className="text-sm font-bold text-[#a1b4c6] font-mono">
                         {win.user}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-[#a1b4c6] text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
+                    <div className="flex items-center justify-center gap-2">
+                      <img className="w-4 h-4" alt="Coins" src="/figmaAssets/coins-02.svg" />
+                      <span className="text-sm font-bold text-[#a1b4c6]">
                         {win.ticketPrice}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-white text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
+                    <div className="flex items-center justify-end gap-2">
+                      <img className="w-4 h-4" alt="Coins" src="/figmaAssets/coins-02.svg" />
+                      <span className="text-sm font-black text-green-400">
                         {win.profit}
                       </span>
                     </div>
@@ -146,125 +132,18 @@ export const PreviousWinsListSection = (): JSX.Element => {
             </CardContent>
           </Card>
         </TabsContent>
-
+        {/* Same content for other tabs for demo */}
         <TabsContent value="highest-wins" className="mt-0">
-          <Card className="bg-[#0d1115] border-0 rounded-[10px]">
-            <CardContent className="p-2 pt-3 pb-2">
-              <div className="grid grid-cols-[1fr_auto_auto] gap-4 mb-2 px-2 h-3">
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  User
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Ticket price
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Profit
-                </div>
-              </div>
-
-              <div className="flex flex-col">
-                {winsData.map((win, index) => (
-                  <div
-                    key={index}
-                    className={`grid grid-cols-[1fr_auto_auto] gap-4 items-center h-[42px] px-2 rounded-[10px] ${win.bgClass}`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Avatar className="w-6 h-6 rounded-lg">
-                        <AvatarImage src="/figmaAssets/frame-340-9.png" />
-                        <AvatarFallback className="rounded-lg bg-gray-700">
-                          {win.user.slice(0, 2)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[#a1b4c6] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)]">
-                        {win.user}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-[#a1b4c6] text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
-                        {win.ticketPrice}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-white text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
-                        {win.profit}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+            <CardContent className="p-0">
+              <div className="p-20 text-center text-white/40 font-bold uppercase tracking-widest">Highest wins ranking</div>
             </CardContent>
           </Card>
         </TabsContent>
-
         <TabsContent value="my-bets" className="mt-0">
-          <Card className="bg-[#0d1115] border-0 rounded-[10px]">
-            <CardContent className="p-2 pt-3 pb-2">
-              <div className="grid grid-cols-[1fr_auto_auto] gap-4 mb-2 px-2 h-3">
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  User
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Ticket price
-                </div>
-                <div className="font-12-bold font-[number:var(--12-bold-font-weight)] text-[#8388aa] text-[length:var(--12-bold-font-size)] tracking-[var(--12-bold-letter-spacing)] leading-[var(--12-bold-line-height)] [font-style:var(--12-bold-font-style)]">
-                  Profit
-                </div>
-              </div>
-
-              <div className="flex flex-col">
-                {winsData.map((win, index) => (
-                  <div
-                    key={index}
-                    className={`grid grid-cols-[1fr_auto_auto] gap-4 items-center h-[42px] px-2 rounded-[10px] ${win.bgClass}`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Avatar className="w-6 h-6 rounded-lg">
-                        <AvatarImage src="/figmaAssets/frame-340-9.png" />
-                        <AvatarFallback className="rounded-lg bg-gray-700">
-                          {win.user.slice(0, 2)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="font-14-semibold font-[number:var(--14-semibold-font-weight)] text-[#a1b4c6] text-[length:var(--14-semibold-font-size)] tracking-[var(--14-semibold-letter-spacing)] leading-[var(--14-semibold-line-height)] [font-style:var(--14-semibold-font-style)]">
-                        {win.user}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-[#a1b4c6] text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
-                        {win.ticketPrice}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-[7px]">
-                      <img
-                        className="w-3 h-3"
-                        alt="Coins"
-                        src="/figmaAssets/coins-02.svg"
-                      />
-                      <span className="font-13-body font-[number:var(--13-body-font-weight)] text-white text-[length:var(--13-body-font-size)] tracking-[var(--13-body-letter-spacing)] leading-[var(--13-body-line-height)] [font-style:var(--13-body-font-style)]">
-                        {win.profit}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+            <CardContent className="p-0">
+              <div className="p-20 text-center text-white/40 font-bold uppercase tracking-widest">Your betting history</div>
             </CardContent>
           </Card>
         </TabsContent>

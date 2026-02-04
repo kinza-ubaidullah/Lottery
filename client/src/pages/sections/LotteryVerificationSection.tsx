@@ -2,25 +2,32 @@ import { Button } from "@/components/ui/button";
 
 export const LotteryVerificationSection = (): JSX.Element => {
   return (
-    <section className="relative w-full rounded-lg overflow-hidden bg-[linear-gradient(180deg,rgba(80,178,0,1)_0%,rgba(114,145,0,1)_100%)] p-3">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex flex-col gap-0.5">
-          <div className="h-4 flex items-center font-14-bold font-[number:var(--14-bold-font-weight)] text-white text-[length:var(--14-bold-font-size)] tracking-[var(--14-bold-letter-spacing)] leading-[var(--14-bold-line-height)] whitespace-nowrap [font-style:var(--14-bold-font-style)]">
-            Fully verifiable
+    <section className="relative w-full rounded-2xl overflow-hidden bg-[linear-gradient(180deg,rgba(80,178,0,1)_0%,rgba(114,145,0,1)_100%)] shadow-xl p-6 md:p-8">
+      {/* Decorative pattern/glow */}
+      <div className="absolute inset-0 bg-white/5 opacity-50 pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-6">
+          <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+            <img
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+              alt="Verify label"
+              src="/figmaAssets/verify-label-1.png"
+            />
           </div>
-          <div className="h-3.5 flex items-center opacity-60 font-12-semibold font-[number:var(--12-semibold-font-weight)] text-white text-[length:var(--12-semibold-font-size)] tracking-[var(--12-semibold-letter-spacing)] leading-[var(--12-semibold-line-height)] whitespace-nowrap [font-style:var(--12-semibold-font-style)]">
-            on Blockchain.com
+
+          <div className="flex flex-col gap-1">
+            <h3 className="text-xl md:text-2xl font-black text-white tracking-tight leading-none uppercase">
+              Fully verifiable
+            </h3>
+            <p className="text-white/70 text-sm md:text-base font-medium">
+              Check results on <span className="text-white font-bold underline cursor-pointer">Blockchain.com</span>
+            </p>
           </div>
         </div>
 
-        <img
-          className="w-[67px] h-[45px] object-cover"
-          alt="Verify label"
-          src="/figmaAssets/verify-label-1.png"
-        />
-
-        <Button className="h-auto px-3 py-2.5 rounded-lg border border-solid border-[#bdff25] bg-[linear-gradient(180deg,rgba(143,216,17,1)_0%,rgba(225,255,117,1)_100%)] hover:bg-[linear-gradient(180deg,rgba(143,216,17,1)_0%,rgba(225,255,117,1)_100%)] font-[number:var(--14-bold-font-weight)] text-[#253602] text-[length:var(--14-bold-font-size)] tracking-[var(--14-bold-letter-spacing)] leading-[var(--14-bold-line-height)] font-14-bold [font-style:var(--14-bold-font-style)]">
-          Verify
+        <Button className="w-full sm:w-auto px-8 h-12 rounded-xl border border-lime-300 bg-[linear-gradient(180deg,rgba(143,216,17,1)_0%,rgba(225,255,117,1)_100%)] hover:scale-105 active:scale-95 transition-all text-[#253602] font-black text-base shadow-lg shadow-lime-950/20">
+          Verify Draw
         </Button>
       </div>
     </section>
