@@ -5,143 +5,199 @@ const digitBoxes = [
   {
     type: "digit",
     value: "0",
-    className: "bg-[#303b46] border-[#525c68] shadow-[0_4px_0_#33383d]",
+    className: "bg-[#323B44] border-none shadow-[0_6px_0_#1C2228]",
     textClassName: "text-white",
   },
   {
     type: "digit",
     value: "0",
-    className:
-      "border-[#ff8961] shadow-[0_4px_0_#c2502a] bg-[linear-gradient(180deg,rgba(31,24,19,1)_0%,rgba(227,104,38,1)_100%)]",
+    className: "bg-[linear-gradient(180deg,#FF8C53_0%,#E36826_100%)] border-none shadow-[0_6px_0_#A83200]",
     textClassName: "text-white",
   },
   {
-    type: "image",
-    src: "/figmaAssets/frame-377.svg",
+    type: "icon",
+    className: "bg-[#181D23] border-none shadow-[0_6px_0_#0D1115]",
+    icon: "/figmaAssets/frame-377.svg",
   },
   {
-    type: "image",
-    src: "/figmaAssets/frame-379.svg",
+    type: "icon",
+    className: "bg-[#181D23] border-none shadow-[0_6px_0_#0D1115]",
+    icon: "/figmaAssets/frame-379.svg",
   },
   {
-    type: "image",
-    src: "/figmaAssets/frame-380.svg",
+    type: "icon",
+    className: "bg-[#181D23] border-none shadow-[0_6px_0_#0D1115]",
+    icon: "/figmaAssets/frame-380.svg",
   },
   {
-    type: "image",
-    src: "/figmaAssets/frame-381.svg",
+    type: "icon",
+    className: "bg-[#181D23] border-none shadow-[0_6px_0_#0D1115]",
+    icon: "/figmaAssets/frame-381.svg",
   },
 ];
 
 const prizeCards = [
   {
     digitMatch: "2",
-    digitClassName: "bg-slate-700",
+    digitClassName: "bg-[#323B44] shadow-[0_4px_0_#1C2228]",
     digitTextClassName: "text-white",
     prize: "Free ticket",
     prizeImage: "/figmaAssets/image-188-1.png",
+    cardBg: "bg-[#1F262E]",
   },
   {
     digitMatch: "3",
-    digitClassName: "bg-orange-600",
-    digitTextClassName: "text-[#fff0c3]",
+    digitClassName: "bg-[linear-gradient(180deg,#3F2412_0%,#E36826_100%)] shadow-[0_4px_0_#201509]",
+    digitTextClassName: "text-[#eee6d3]",
     prize: "$300",
     prizeImage: "/figmaAssets/image-188-5.png",
+    cardBg: "linear-gradient(180deg, #13191F 0%, #1F262E 100%)",
+    glow: "radial-gradient(circle at top right, rgba(227, 104, 38, 0.15) 0%, transparent 60%)"
   },
   {
     digitMatch: "4",
-    digitClassName: "bg-red-600",
+    digitClassName: "bg-[#FF6B26] shadow-[0_4px_0_#A83200]",
     digitTextClassName: "text-white",
     prize: "$3 000",
     prizeImage: "/figmaAssets/image-188-5.png",
+    cardBg: "linear-gradient(135deg, #1A0F0A 0%, #1F262E 100%)",
+    glow: "radial-gradient(circle at top right, rgba(255, 107, 38, 0.2) 0%, transparent 60%)"
   },
   {
     digitMatch: "5",
-    digitClassName: "bg-lime-500",
+    digitClassName: "bg-[#BDFF25] shadow-[0_4px_0_#6D9500]",
     digitTextClassName: "text-black",
     prize: "$50 000",
     prizeImage: "/figmaAssets/image-188-5.png",
+    cardBg: "linear-gradient(135deg, #253602 0%, #1F262E 100%)",
+    glow: "radial-gradient(circle at top right, rgba(189, 255, 37, 0.3) 0%, transparent 70%)"
   },
   {
     digitMatch: "6",
-    digitClassName: "bg-purple-600",
+    digitClassName: "bg-[linear-gradient(180deg,#411C6D_0%,#9A16E1_100%)] shadow-[0_4px_0_#1D0A35]",
     digitTextClassName: "text-white",
     prize: "Jackpot",
     prizeImage: "/figmaAssets/image-188-5.png",
+    cardBg: "linear-gradient(180deg, #13191F 0%, #1F262E 100%)",
+    glow: "radial-gradient(circle at top right, rgba(154, 118, 255, 0.2) 0%, transparent 60%)"
   },
 ];
 
 export const LatestBitcoinBlockSection = (): JSX.Element => {
   return (
-    <section className="flex flex-col w-full gap-8 relative">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-        <div className="flex items-center gap-4">
-          <img
-            className="w-16 h-16 object-contain"
-            alt="Bitcoin block"
-            src="/figmaAssets/image-180.png"
-          />
-          <div className="flex flex-col">
-            <h2 className="text-lg font-bold text-white">See how the game works</h2>
-            <p className="text-sm text-white/60 leading-relaxed">
-              No wallet. No risk. Just a demo.<br className="hidden sm:block" />
-              Example draw using real Bitcoin block logic.
-            </p>
+    <section className="flex flex-col w-full gap-8 md:gap-16 relative py-8">
+      {/* Simulation Banner */}
+      <div className="flex flex-col gap-10 p-8 md:p-14 rounded-[40px] bg-[#12171D] border border-white/5 shadow-2xl relative overflow-hidden group">
+
+        {/* Banner Content Layout */}
+        <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-10">
+
+          {/* Top Left: Icon & Text */}
+          <div className="flex items-center gap-6 md:gap-10 w-full lg:w-auto">
+            <div className="w-24 h-24 md:w-44 md:h-44 shrink-0 relative">
+              <div className="absolute inset-0 bg-[#FF6B26]/10 blur-[40px] rounded-full scale-90" />
+              <img
+                className="w-full h-full object-contain relative z-10 drop-shadow-2xl"
+                alt="Help Icon"
+                src="/figmaAssets/image-180.png"
+              />
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h2 className="text-2xl md:text-6xl font-black text-white leading-tight">See how the game works</h2>
+              <div className="flex flex-col text-sm md:text-[28px] text-[#a1b4c6] font-medium leading-[1.3] max-w-2xl opacity-80">
+                <p>No wallet. No risk. Just a demo.</p>
+                <p>This is an example draw using real Bitcoin block logic</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <div className="flex items-center gap-1.5">
-            {digitBoxes.map((box, index) =>
-              box.type === "digit" ? (
-                <div
-                  key={index}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg border ${box.className}`}
-                >
-                  <span className={`text-xl font-black ${box.textClassName}`}>{box.value}</span>
-                </div>
-              ) : (
-                <img
-                  key={index}
-                  className="w-8 h-8 object-contain"
-                  alt="Divider"
-                  src={box.src}
-                />
-              )
-            )}
+        {/* Bottom Section: Slots & Buttons */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 w-full pt-4">
+          {/* Interaction area */}
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 justify-center md:justify-start">
+            {digitBoxes.map((box, index) => (
+              <div
+                key={index}
+                className={`w-12 h-12 md:w-20 md:h-20 flex items-center justify-center rounded-[14px] md:rounded-[22px] transition-all duration-300 ${box.className}`}
+              >
+                {box.type === "digit" ? (
+                  <span className={`text-xl md:text-5xl font-black ${box.textClassName}`}>{box.value}</span>
+                ) : (
+                  <img
+                    className="w-7 h-7 md:w-12 md:h-12 object-contain opacity-40 brightness-150"
+                    alt="Shield Icon"
+                    src={box.icon}
+                  />
+                )}
+              </div>
+            ))}
           </div>
-          <Button className="w-full sm:w-auto px-6 h-11 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold shadow-lg shadow-orange-900/20">
+
+          <Button
+            className="w-full lg:w-auto px-16 h-16 md:h-24 rounded-[20px] md:rounded-[30px] text-white font-black text-2xl md:text-5xl transition-all active:scale-95 border border-[#FF8962] shadow-xl"
+            style={{
+              background: 'linear-gradient(180deg, #FF4B0F 0%, #FF6F3F 100%)'
+            }}
+          >
             Randomize
           </Button>
         </div>
+
+        {/* Subtle background flair */}
+        <div className="absolute -right-40 -top-40 w-[600px] h-[600px] bg-[#FF6B26]/5 blur-[150px] rounded-full pointer-events-none" />
       </div>
 
-      <div className="flex flex-col gap-4">
-        <h3 className="text-[#a1b4c6] font-bold text-sm uppercase tracking-widest px-2">
+      {/* Prize Table Section */}
+      <div className="flex flex-col gap-10">
+        <h3 className="text-[#a1b4c6] font-black text-sm md:text-2xl uppercase tracking-[5px] px-2 text-center md:text-left opacity-60">
           Prizes if your digit match
         </h3>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
           {prizeCards.map((card, index) => (
             <Card
               key={index}
-              className="group flex flex-col items-center justify-center p-4 rounded-xl border border-white/10 bg-[linear-gradient(180deg,rgba(19,25,31,1)_0%,rgba(31,38,46,1)_100%)] hover:border-orange-500/50 transition-all"
+              className={`group relative flex flex-col items-center justify-center p-6 md:p-10 rounded-[40px] transition-all duration-300 shadow-2xl overflow-hidden w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-27px)] min-h-[320px]`}
+              style={{
+                background: 'linear-gradient(135deg, #0A0D11 0%, #13191F 40%, #1F262E 100%)',
+                border: '1px solid #252F38',
+              }}
             >
-              <CardContent className="p-0 flex flex-col items-center gap-4 w-full">
-                <div className={`w-10 h-10 flex items-center justify-center rounded-xl font-black shadow-lg ${card.digitClassName} ${card.digitTextClassName}`}>
+              {card.glow && (
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-60"
+                  style={{ background: card.glow }}
+                />
+              )}
+
+              {/* Top Gradient Accents */}
+              {index === 1 && (
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-orange-500/10 to-transparent pointer-events-none z-0" />
+              )}
+              {index === 2 && (
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#B45401]/30 via-black/50 to-transparent pointer-events-none z-0" />
+              )}
+              {index === 3 && (
+                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#BDFF25]/10 to-transparent pointer-events-none z-0" />
+              )}
+              {index === 4 && (
+                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#9A76FF]/25 via-[#9A76FF]/5 to-transparent pointer-events-none z-0" />
+              )}
+
+              <CardContent className="p-0 flex flex-col items-center gap-4 w-full relative z-10">
+                <div className={`w-12 h-12 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-[22px] font-black shadow-lg border border-white/5 ${card.digitClassName} ${card.digitTextClassName} text-sm md:text-3xl font-mono`}>
                   {card.digitMatch}
                 </div>
 
-                <div className="flex flex-col items-center text-center">
-                  <span className="text-[10px] text-white/40 uppercase font-black">MATCH</span>
-                  <span className="text-xs text-white/80 font-bold">Digit match</span>
-                </div>
+                <h4 className="text-white text-base md:text-[32px] font-black font-['Montserrat'] tracking-tight">Digit match</h4>
 
-                <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-black/40 w-full justify-center">
-                  <img src={card.prizeImage} className="w-6 h-6 object-contain" alt="Prize" />
-                  <div className="flex flex-col items-start leading-none">
-                    <span className="text-[8px] text-white/40 font-bold uppercase">PRIZE</span>
-                    <span className="text-sm font-black text-white">{card.prize}</span>
+                <div className="flex items-center gap-4 mt-3 w-full justify-center">
+                  <img src={card.prizeImage} className="w-12 h-12 md:w-16 md:h-16 object-contain" alt="Prize" />
+                  <div className="flex flex-col items-start leading-none gap-1">
+                    <span className="text-[10px] md:text-sm text-[#525D68] font-bold uppercase tracking-wider">Prize</span>
+                    <span className="text-base md:text-[32px] font-black text-white font-['Montserrat']">{card.prize}</span>
                   </div>
                 </div>
               </CardContent>

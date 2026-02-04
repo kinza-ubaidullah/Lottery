@@ -6,7 +6,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Tabs,
-  TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
@@ -16,113 +15,135 @@ const winsData = [
     user: "0xA9f",
     ticketPrice: "569 USD",
     profit: "+ 569 USD",
-    bgClass: "bg-[#10161a]",
+    avatar: "/figmaAssets/frame-340-9.png"
   },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", bgClass: "" },
-  {
-    user: "0xA9f",
-    ticketPrice: "569 USD",
-    profit: "+ 569 USD",
-    bgClass: "bg-[#10161a]",
-  },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", bgClass: "" },
-  {
-    user: "0xA9f",
-    ticketPrice: "569 USD",
-    profit: "+ 569 USD",
-    bgClass: "bg-[#10161a]",
-  },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", bgClass: "" },
-  {
-    user: "0xA9f",
-    ticketPrice: "569 USD",
-    profit: "+ 569 USD",
-    bgClass: "bg-[#10161a]",
-  },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", bgClass: "" },
-  {
-    user: "0xA9f",
-    ticketPrice: "569 USD",
-    profit: "+ 569 USD",
-    bgClass: "bg-[#10161a]",
-  },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", bgClass: "" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
+  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
 ];
 
 export const PreviousWinsListSection = (): JSX.Element => {
   return (
-    <section className="w-full py-8">
-      <div className="flex items-center gap-3 mb-8 px-2 justify-center lg:justify-start">
-        <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/20">
-          <img
-            className="w-8 h-8 md:w-10 md:h-10"
-            alt="Champion"
-            src="/figmaAssets/champion.svg"
-          />
+    <section className="w-full py-12">
+      {/* Header Section from Image */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-4 px-2">
+        <div className="flex items-center gap-4 md:gap-6 justify-center w-full">
+          <div className="relative shrink-0 flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#BDFF25]/10 blur-xl rounded-full scale-110" />
+            <img
+              className="w-10 h-10 md:w-12 md:h-12 relative z-10 drop-shadow-[0_0_8px_rgba(189,255,37,0.4)]"
+              alt="Champion"
+              src="/figmaAssets/champion.svg"
+            />
+          </div>
+          <h2 className="text-[28px] md:text-[40px] font-bold text-white tracking-tight font-['Outfit'] leading-none flex items-center">
+            Previous wins
+          </h2>
         </div>
-        <h2 className="text-xl md:text-2xl font-black text-white tracking-tight uppercase">
-          Previous wins
-        </h2>
       </div>
 
       <Tabs defaultValue="best-drops" className="w-full">
-        <TabsList className="w-full bg-white/5 p-1 rounded-2xl mb-8 border border-white/10 h-14">
-          <TabsTrigger
-            value="best-drops"
-            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
-          >
-            Best drops
-          </TabsTrigger>
-          <TabsTrigger
-            value="highest-wins"
-            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
-          >
-            Highest wins
-          </TabsTrigger>
-          <TabsTrigger
-            value="my-bets"
-            className="flex-1 rounded-xl data-[state=active]:bg-orange-600 data-[state=active]:text-white text-[#a1b4c6] font-bold transition-all h-full"
-          >
-            My bets
-          </TabsTrigger>
-        </TabsList>
+        <div className="border-b border-white/5 mb-6 overflow-x-auto scrollbar-hide">
+          <TabsList className="bg-transparent h-12 md:h-16 p-0 justify-start gap-4 md:gap-8 rounded-none w-full md:w-auto">
+            <TabsTrigger
+              value="best-drops"
+              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-bold text-base md:text-xl transition-all border-none overflow-visible rounded-none"
+            >
+              <span>Best drops</span>
+              {/* Active Bottom Line */}
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#BDFF25] opacity-0 data-[state=active]:opacity-100 transition-opacity z-10" />
+            </TabsTrigger>
 
-        <TabsContent value="best-drops" className="mt-0">
-          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+            <TabsTrigger
+              value="highest-wins"
+              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-bold text-base md:text-xl transition-all border-none rounded-none"
+            >
+              Highest wins
+            </TabsTrigger>
+
+            <TabsTrigger
+              value="my-bets"
+              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-bold text-base md:text-xl transition-all border-none rounded-none"
+            >
+              My bets
+            </TabsTrigger>
+          </TabsList>
+        </div>
+
+        <div className="w-full relative">
+          <Card className="bg-[#0D1115] border-none rounded-[32px] overflow-hidden relative">
             <CardContent className="p-0">
-              <div className="grid grid-cols-3 gap-4 px-6 py-4 border-b border-white/5 bg-white/[0.02]">
-                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest">User</div>
-                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest text-center">Ticket price</div>
-                <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-widest text-right">Profit</div>
+              <div className="grid grid-cols-3 gap-4 px-6 py-4 md:px-10 md:py-6">
+                <div className="text-xs md:text-lg font-bold text-[#525D68] font-['Outfit']">User</div>
+                <div className="text-xs md:text-lg font-bold text-[#525D68] font-['Outfit'] text-center">Ticket price</div>
+                <div className="text-xs md:text-lg font-bold text-[#525D68] font-['Outfit'] text-left pl-8">Profit</div>
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2">
                 {winsData.map((win, index) => (
                   <div
                     key={index}
-                    className={`grid grid-cols-3 gap-4 items-center px-6 py-4 transition-colors hover:bg-white/[0.03] ${index % 2 === 0 ? "bg-white/[0.01]" : ""}`}
+                    className={`grid grid-cols-3 gap-4 items-center px-6 py-3 md:px-10 md:py-4 rounded-[20px] mb-2 mx-4 md:mx-6 ${index === 0
+                        ? "bg-[#11161B]"
+                        : index % 2 !== 0
+                          ? "bg-transparent"
+                          : "bg-[#11161B]/50"
+                      }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <Avatar className="w-8 h-8 rounded-xl border border-white/10">
-                        <AvatarFallback className="rounded-xl bg-slate-800 text-[10px] font-bold text-white/60">
-                          {win.user.slice(2, 4)}
-                        </AvatarFallback>
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <Avatar className="w-8 h-8 md:w-12 md:h-12 rounded-full">
+                        <AvatarImage src={win.avatar} alt="User" />
+                        <AvatarFallback className="bg-transparent text-[#BDFF25]">U</AvatarFallback>
                       </Avatar>
-                      <span className="text-sm font-bold text-[#a1b4c6] font-mono">
+                      <span className="text-base md:text-xl font-bold text-[#a1b4c6] font-['Outfit']">
                         {win.user}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-center gap-2">
-                      <img className="w-4 h-4" alt="Coins" src="/figmaAssets/coins-02.svg" />
-                      <span className="text-sm font-bold text-[#a1b4c6]">
+                      {/* Composite Icon (Orange) */}
+                      <div className="relative w-[14px] h-[14px]">
+                        <div
+                          className="absolute rounded-full bg-[#FF8962]"
+                          style={{
+                            width: '6.5px', height: '6.5px', top: '4.88px', left: '0.63px', opacity: 0.4
+                          }}
+                        />
+                        <div
+                          className="absolute rounded-full bg-[#FF8962]"
+                          style={{
+                            width: '8.75px', height: '8.75px', top: '0.63px', left: '2.63px', opacity: 1
+                          }}
+                        />
+                      </div>
+                      <span className="text-base md:text-xl font-bold text-[#a1b4c6] font-['Outfit']">
                         {win.ticketPrice}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-end gap-2">
-                      <img className="w-4 h-4" alt="Coins" src="/figmaAssets/coins-02.svg" />
-                      <span className="text-sm font-black text-green-400">
+                    <div className="flex items-center justify-start gap-2 pl-8">
+                      {/* Composite Icon (Lime) */}
+                      <div className="relative w-[14px] h-[14px]">
+                        <div
+                          className="absolute rounded-full bg-[#BEFF25]"
+                          style={{
+                            width: '6.5px', height: '6.5px', top: '4.88px', left: '0.63px', opacity: 0.4
+                          }}
+                        />
+                        <div
+                          className="absolute rounded-full bg-[#BEFF25]"
+                          style={{
+                            width: '8.75px', height: '8.75px', top: '0.63px', left: '2.63px', opacity: 1
+                          }}
+                        />
+                      </div>
+                      <span className="text-base md:text-xl font-bold text-white font-['Outfit']">
                         {win.profit}
                       </span>
                     </div>
@@ -131,22 +152,7 @@ export const PreviousWinsListSection = (): JSX.Element => {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
-        {/* Same content for other tabs for demo */}
-        <TabsContent value="highest-wins" className="mt-0">
-          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
-            <CardContent className="p-0">
-              <div className="p-20 text-center text-white/40 font-bold uppercase tracking-widest">Highest wins ranking</div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="my-bets" className="mt-0">
-          <Card className="bg-[#0d1115] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
-            <CardContent className="p-0">
-              <div className="p-20 text-center text-white/40 font-bold uppercase tracking-widest">Your betting history</div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+        </div>
       </Tabs>
     </section>
   );
