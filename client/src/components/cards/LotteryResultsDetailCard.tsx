@@ -47,15 +47,15 @@ export const LotteryResultsDetailCard: React.FC<LotteryResultsDetailCardProps> =
             {/* Stats Grid - Fixed to 2 columns for all screens */}
             <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-[#141A20] rounded-[16px] p-4 flex flex-col gap-1">
-                    <span className="text-[#525D68] text-[13px] font-bold font-['Montserrat']">Prize Pool</span>
-                    <span className="text-white text-[16px] font-black font-['Montserrat'] whitespace-nowrap">{prizePool} USDT</span>
+                    <span className="text-[#525D68] text-[11px] md:text-[13px] font-bold font-['Montserrat']">Prize Pool</span>
+                    <span className="text-white text-[14px] md:text-[16px] font-black font-['Montserrat'] whitespace-normal leading-tight">{prizePool} USDT</span>
                 </div>
                 <div className="bg-[#141A20] rounded-[16px] p-4 flex flex-col gap-1">
-                    <span className="text-[#525D68] text-[13px] font-bold font-['Montserrat']">Draw Date</span>
-                    <span className="text-white text-[16px] font-black font-['Montserrat'] whitespace-nowrap">{drawDate}</span>
+                    <span className="text-[#525D68] text-[11px] md:text-[13px] font-bold font-['Montserrat']">Draw Date</span>
+                    <span className="text-white text-[14px] md:text-[16px] font-black font-['Montserrat'] whitespace-normal leading-tight">{drawDate}</span>
                 </div>
                 <div className="bg-[#141A20] rounded-[16px] p-4 flex flex-col gap-1">
-                    <span className="text-[#525D68] text-[13px] font-bold font-['Montserrat']">Total Tickets</span>
+                    <span className="text-[#525D68] text-[11px] md:text-[13px] font-bold font-['Montserrat']">Total Tickets</span>
                     <span className="text-white text-[16px] font-black font-['Montserrat']">{totalTickets}</span>
                 </div>
                 <div className="bg-[#141A20] rounded-[16px] p-4 flex flex-col gap-1">

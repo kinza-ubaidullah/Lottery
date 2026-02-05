@@ -167,6 +167,9 @@ export const LotteryResultsPage = (): JSX.Element => {
                     </div>
                 </div>
 
+                {/* Previous Wins Feed */}
+                <PreviousWinsListSection />
+
             </main>
 
             <FooterLinksSection />
