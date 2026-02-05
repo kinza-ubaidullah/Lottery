@@ -8,14 +8,6 @@
     },
     "rewrites": [
         {
-            "source": "/(assets|figmaAssets)/(.*)",
-            "destination": "/client/public/$1/$2"
-        },
-        {
-            "source": "/favicon.ico",
-            "destination": "/client/public/favicon.ico"
-        },
-        {
             "source": "/api/(.*)",
             "destination": "/api/index.ts"
         },

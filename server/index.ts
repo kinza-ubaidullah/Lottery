@@ -1,16 +1,14 @@
 import express, { type Request, Response, NextFunction } from "express";
 import path from "path";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { setupVite, serveStatic } from "./vite";
+import { log } from "./utils";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
-app.get("/favicon.ico", (_req, res) => {
-  res.sendFile(path.resolve(process.cwd(), "dist", "public", "favicon.ico"));
-});
 
 // Middleware and routes setup
 app.use((req, res, next) => {
@@ -61,5 +59,3 @@ app.use((req, res, next) => {
 })();
 
 export default app;
-
-
