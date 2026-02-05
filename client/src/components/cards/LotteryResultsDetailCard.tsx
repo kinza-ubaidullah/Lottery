@@ -73,14 +73,14 @@ export const LotteryResultsDetailCard: React.FC<LotteryResultsDetailCardProps> =
                 <span className="text-[#00F0FF] font-black font-['Montserrat'] text-[15px] uppercase">{winnerCount} users</span>
             </div>
 
-            {/* Breakdown Items */}
-            <div className="flex flex-wrap items-center gap-y-3 gap-x-4 mb-4">
+            {/* Breakdown Items - Prize Tiers */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-x-3 gap-y-4 mb-6">
                 {breakdown.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-[#BDFF25] flex items-center justify-center">
+                    <div key={idx} className="flex flex-col items-center gap-2 bg-[#141A20] rounded-[16px] py-4 px-2 border border-white/5 transition-colors hover:border-[#BDFF25]/30">
+                        <div className="w-8 h-8 rounded-full bg-[#BDFF25] flex items-center justify-center shadow-[0_0_15px_rgba(189,255,37,0.3)]">
                             <span className="text-black font-black font-['Montserrat'] text-[14px]">{item.matchCount}</span>
                         </div>
-                        <span className="text-white font-black font-['Montserrat'] text-[18px]">{item.userCount}</span>
+                        <span className="text-white font-black font-['Montserrat'] text-[16px]">{item.userCount}</span>
                     </div>
                 ))}
             </div>

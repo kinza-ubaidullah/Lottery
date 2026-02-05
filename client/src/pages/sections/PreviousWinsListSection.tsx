@@ -1,148 +1,163 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import React from 'react';
+import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const winsData = [
   {
     user: "0xA9f",
+    date: "2 min ago",
+    ticketAmount: "2 tickets",
     ticketPrice: "569 USD",
+    numbers: ["5", "3", "8", "9", "K", "J"],
+    winningNumbers: ["5", "3", "8", "9", "K", "J"],
     profit: "+ 569 USD",
-    avatar: "/figmaAssets/frame-340-9.png"
+    avatar: "/figmaAssets/img6.png"
   },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
-  { user: "0xA9f", ticketPrice: "569 USD", profit: "+ 569 USD", avatar: "/figmaAssets/frame-340-9.png" },
 ];
 
-export const PreviousWinsListSection = (): JSX.Element => {
+export const PreviousWinsListSection: React.FC = () => {
+  const tabs = ["Best drops", "Highest wins", "My bets"];
+  const [activeTab, setActiveTab] = React.useState("Best drops");
+
+  // Grid layout for maximum separation
+  const gridLayout = "grid grid-cols-[1.2fr_1fr_1.2fr_1.2fr_2fr_2fr_1fr]";
+
   return (
-    <section className="w-full py-12">
-      {/* Header Section - Reduced Boldness */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-4 px-2">
-        <div className="flex items-center gap-4 md:gap-6 justify-center w-full">
-          <div className="relative shrink-0 flex items-center justify-center">
-            <div className="absolute inset-0 bg-[#BDFF25]/10 blur-xl rounded-full scale-110" />
-            <img
-              className="w-10 h-10 md:w-12 md:h-12 relative z-10 drop-shadow-[0_0_8px_rgba(189,255,37,0.4)]"
-              alt="Champion"
-              src="/figmaAssets/champion.svg"
-            />
-          </div>
-          <h2 className="text-[28px] md:text-[40px] font-bold md:font-[900] text-white tracking-tight font-['Montserrat'] leading-none flex items-center uppercase">
-            Previous wins
-          </h2>
+    <section className="w-full py-12 flex flex-col items-center">
+      {/* Centered Header with Neon Glow Icon */}
+      <div className="flex items-center gap-3 mb-10 group cursor-default">
+        <div className="relative">
+          <div className="absolute inset-0 bg-[#BDFF25] blur-[15px] opacity-40 rounded-full group-hover:opacity-60 transition-opacity" />
+          <img
+            src="/figmaAssets/champion.png"
+            className="w-8 h-8 md:w-9 md:h-9 object-contain relative z-10"
+            alt="Trophy"
+          />
+        </div>
+        <h2 className="text-2xl md:text-[32px] font-black text-white font-['Montserrat'] tracking-tight">
+          Previous wins
+        </h2>
+      </div>
+
+      {/* Centered Tabs with Mobile Styling */}
+      <div className="flex items-center justify-center w-full mb-12">
+        <div className="flex bg-[#0D1115]/80 backdrop-blur-md rounded-[20px] p-1 border border-white/5 relative">
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab;
+            return (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={cn(
+                  "relative px-8 md:px-12 py-3.5 rounded-[18px] text-[13px] font-black transition-all duration-500 uppercase tracking-widest font-['Montserrat'] overflow-hidden",
+                  isActive
+                    ? "text-[#BDFF25] z-10"
+                    : "text-[#525D68] hover:text-white"
+                )}
+              >
+                {isActive && (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#BDFF25]/20 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-[#BDFF25] shadow-[0_0_15px_#BDFF25] pointer-events-none" />
+                  </>
+                )}
+                {tab === "Highest wins" ? "HIshest wins" : tab}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <Tabs defaultValue="best-drops" className="w-full">
-        <div className="border-b border-white/5 mb-6 overflow-x-auto scrollbar-hide">
-          <TabsList className="bg-transparent h-12 md:h-16 p-0 justify-start gap-4 md:gap-8 rounded-none w-full md:w-auto">
-            <TabsTrigger
-              value="best-drops"
-              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-semibold md:font-bold text-base md:text-xl transition-all border-none overflow-visible rounded-none"
-            >
-              <span>Best drops</span>
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#BDFF25] opacity-0 data-[state=active]:opacity-100 transition-opacity z-10" />
-            </TabsTrigger>
+      {/* Table Feed */}
+      <div className="w-full overflow-x-auto custom-scrollbar">
+        <div className="min-w-[1440px] w-full">
+          {/* Table Header */}
+          <div className={cn(gridLayout, "px-6 py-4 mb-2")}>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">User</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">Date</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">Ticket amount</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">Ticket price</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">Numbers</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat']">Winning numbers</span>
+            <span className="text-[10px] font-black text-[#525D68] uppercase tracking-widest font-['Montserrat'] text-right">Profit</span>
+          </div>
 
-            <TabsTrigger
-              value="highest-wins"
-              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-semibold md:font-bold text-base md:text-xl transition-all border-none rounded-none"
-            >
-              Highest wins
-            </TabsTrigger>
-
-            <TabsTrigger
-              value="my-bets"
-              className="relative flex items-center justify-center min-w-[117px] h-[36px] md:min-w-[160px] md:h-[50px] px-8 py-2.5 gap-3 data-[state=active]:bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] font-['Outfit'] font-semibold md:font-bold text-base md:text-xl transition-all border-none rounded-none"
-            >
-              My bets
-            </TabsTrigger>
-          </TabsList>
-        </div>
-
-        <div className="w-full relative">
-          <Card className="bg-[#0D1115] border-none rounded-[32px] overflow-hidden relative">
-            <CardContent className="p-0">
-              <div className="grid grid-cols-3 gap-1 px-2 py-4 md:px-10 md:py-6 mx-1 md:mx-6">
-                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-start uppercase tracking-widest opacity-60">User</div>
-                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-center uppercase tracking-widest opacity-60">Ticket price</div>
-                <div className="text-[9px] md:text-sm font-semibold md:font-bold text-[#525D68] font-['Outfit'] flex justify-end uppercase tracking-widest opacity-60">Profit</div>
-              </div>
-
-              <div className="flex flex-col gap-1.5 pb-4 pt-0">
-                {winsData.map((win, index) => (
-                  <div
-                    key={index}
-                    className={`grid grid-cols-3 gap-1 items-center px-2 py-3 md:px-10 md:py-4 rounded-[12px] md:rounded-[20px] mb-0.5 mx-1 md:mx-6 ${index === 0
-                      ? "bg-[#11161B]"
-                      : index % 2 !== 0
-                        ? "bg-transparent"
-                        : "bg-[#11161B]/50"
-                      }`}
-                  >
-                    <div className="flex items-center gap-1.5 md:gap-4 justify-start overflow-hidden">
-                      <Avatar className="w-6 h-6 md:w-12 md:h-12 rounded-full shrink-0">
-                        <AvatarImage src={win.avatar} alt="User" />
-                        <AvatarFallback className="bg-transparent text-[#BDFF25]">U</AvatarFallback>
-                      </Avatar>
-                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] truncate leading-none">
-                        {win.user}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-center gap-1 md:gap-2">
-                      <div className="relative w-[8px] h-[8px] md:w-[14px] md:h-[14px] shrink-0">
-                        <div
-                          className="absolute rounded-full bg-[#FF8962]"
-                          style={{ width: '3.5px', height: '3.5px', top: '2.5px', left: '0.4px', opacity: 0.4 }}
-                        />
-                        <div
-                          className="absolute rounded-full bg-[#FF8962]"
-                          style={{ width: '5.5px', height: '5.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
-                        />
-                      </div>
-                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-[#a1b4c6] font-['Outfit'] whitespace-nowrap leading-none">
-                        {win.ticketPrice}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-end gap-1 md:gap-2">
-                      <div className="relative w-[8px] h-[8px] md:w-[14px] md:h-[14px] shrink-0">
-                        <div
-                          className="absolute rounded-full bg-[#BEFF25]"
-                          style={{ width: '3.5px', height: '3.5px', top: '2.5px', left: '0.4px', opacity: 0.4 }}
-                        />
-                        <div
-                          className="absolute rounded-full bg-[#BEFF25]"
-                          style={{ width: '5.5px', height: '5.5px', top: '0.4px', left: '1.8px', opacity: 1 }}
-                        />
-                      </div>
-                      <span className="text-[12px] md:text-xl font-semibold md:font-bold text-white font-['Outfit'] whitespace-nowrap leading-none">
-                        {win.profit}
-                      </span>
-                    </div>
+          {/* Table Rows */}
+          <div className="flex flex-col gap-1.5">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, idx) => (
+              <div
+                key={idx}
+                className={cn(
+                  gridLayout,
+                  "items-center px-6 py-5 transition-colors",
+                  idx % 2 === 0 ? "bg-[#12171D]/40" : "bg-transparent"
+                )}
+              >
+                {/* User */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/5 bg-[#1F262E]">
+                    <img src="/figmaAssets/img6.png" className="w-full h-full object-cover" alt="User" />
                   </div>
-                ))}
+                  <span className="text-white font-black text-[14px] font-['Montserrat']">0xA9f</span>
+                </div>
+
+                {/* Date */}
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#525D68]/20 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#525D68]" />
+                  </div>
+                  <span className="text-[#525D68] text-[13px] font-bold font-['Outfit']">2 min ago</span>
+                </div>
+
+                {/* Ticket Amount */}
+                <div className="flex items-center gap-2">
+                  <img src="/figmaAssets/image-194-1.png" className="w-5 h-4 object-contain" alt="Ticket" />
+                  <span className="text-white font-black text-[13px] font-['Montserrat']">2 tickets</span>
+                </div>
+
+                {/* Ticket Price */}
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#E36826]/20 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-[#E36826]" />
+                  </div>
+                  <span className="text-white font-black text-[13px] font-['Montserrat']">569 USD</span>
+                </div>
+
+                {/* Numbers */}
+                <div className="flex justify-start gap-1.5 pr-20">
+                  {["5", "3", "8", "9", "K", "J"].map((n, i) => (
+                    <div key={i} className="w-[28px] h-9 bg-[#E36826] rounded-md flex items-center justify-center shadow-[0_2px_0_#A83200]">
+                      <span className="text-[#12171D] font-black text-[12px] font-['Montserrat']">{n}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Winning Numbers */}
+                <div className="flex justify-start gap-1.5">
+                  {["5", "3", "8", "9", "K", "J"].map((n, i) => (
+                    <div key={i} className="w-[28px] h-9 bg-[#E36826] rounded-md flex items-center justify-center shadow-[0_2px_0_#A83200]">
+                      <span className="text-[#12171D] font-black text-[12px] font-['Montserrat']">{n}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Profit */}
+                <div className="flex items-center justify-end gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#BDFF25]/20 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-[#BDFF25]" />
+                  </div>
+                  <span className="text-[#BDFF25] font-black text-[15px] font-['Montserrat'] italic leading-none">+ 569 USD</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
         </div>
-      </Tabs>
+      </div>
+
+      {/* Show more button */}
+      <button className="self-center mt-10 px-10 h-14 rounded-2xl border border-white/5 text-[#525D68] font-black text-sm uppercase tracking-widest font-['Montserrat'] hover:bg-white/5 transition-all">
+        Show more results
+      </button>
     </section>
   );
 };
