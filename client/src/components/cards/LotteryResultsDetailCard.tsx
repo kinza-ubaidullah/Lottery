@@ -31,7 +31,7 @@ export const LotteryResultsDetailCard: React.FC<LotteryResultsDetailCardProps> =
     className = ""
 }) => {
     return (
-        <div className={`w-full bg-[#0F1419] rounded-[24px] border border-white/5 shadow-2xl relative flex flex-col pt-8 pb-10 px-6 group transition-all duration-300 hover:scale-[1.01] hover:z-30 ${className}`}>
+        <div className={`w-full bg-[#0F1419] rounded-[24px] border border-white/5 shadow-2xl relative flex flex-col pt-8 pb-10 px-4 sm:px-6 group transition-all duration-300 hover:scale-[1.01] hover:z-30 ${className}`}>
 
             {/* Header */}
             <div className="flex flex-col items-center gap-2 mb-6 text-center">

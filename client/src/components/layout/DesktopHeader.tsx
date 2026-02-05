@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SignUpModal } from "@/components/modals/SignUpModal";
 import { ForgotPasswordModal } from "@/components/modals/ForgotPasswordModal";
@@ -13,6 +13,11 @@ export const DesktopHeader = (): JSX.Element => {
     const [isForgotOpen, setIsForgotOpen] = useState(false);
     const [isVerificationOpen, setIsVerificationOpen] = useState(false);
     const [isCreatePasswordOpen, setIsCreatePasswordOpen] = useState(false);
+    const [location] = useLocation();
+
+    // Helper to determine if a link is active
+    const isActive = (path: string) => location === path;
+    const isResultsActive = location === "/dashboard" || location === "/lottery-results";
 
     const handleRecoverPassword = () => {
         setIsSignUpOpen(false);
@@ -40,26 +45,52 @@ export const DesktopHeader = (): JSX.Element => {
             <div className="w-full px-8 flex items-center justify-between h-full">
                 {/* Left Navigation */}
                 <div className="flex items-center gap-10">
-                    <h1 className="font-['Montserrat'] font-[900] text-white text-[24px] tracking-tight leading-none uppercase select-none">
-                        LOTTERY
-                    </h1>
+                    <Link href="/">
+                        <h1 className="font-['Montserrat'] font-[900] text-white text-[24px] tracking-tight leading-none uppercase select-none cursor-pointer hover:opacity-80 transition-opacity">
+                            LOTTERY
+                        </h1>
+                    </Link>
 
                     <nav className="flex items-center gap-8">
-                        <Link href="/play-lottery" className="flex items-center gap-2 text-[#525D68] hover:text-white transition-all group">
-                            <img src="/figmaAssets/img3.png" className="w-4 h-4 opacity-50 group-hover:opacity-100 object-contain" />
-                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat']">Play now</span>
+                        <Link href="/play-lottery" className={`relative flex items-center gap-2 transition-all group ${isActive('/play-lottery') ? 'text-white' : 'text-[#525D68] hover:text-white'}`}>
+                            {isActive('/play-lottery') && (
+                                <div className="absolute -bottom-[27px] left-1/2 -translate-x-1/2 w-[140%] h-[45px] bg-[radial-gradient(50%_100%_at_50%_100%,rgba(190,255,37,0.25)_0%,rgba(190,255,37,0)_100%)] pointer-events-none" />
+                            )}
+                            <img src="/figmaAssets/img3.png" className={`w-4 h-4 object-contain relative z-10 ${isActive('/play-lottery') ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} />
+                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat'] relative z-10">Play now</span>
+                            {isActive('/play-lottery') && (
+                                <div className="absolute -bottom-[27px] left-0 w-full h-[3px] bg-[#BEFF25] rounded-t-[2px] shadow-[0_0_12px_rgba(190,255,37,0.6)] z-10" />
+                            )}
                         </Link>
-                        <Link href="/" className="flex items-center gap-2 text-[#525D68] hover:text-white transition-all group">
-                            <img src="/figmaAssets/box.png" className="w-4 h-4 opacity-50 group-hover:opacity-100 object-contain" />
-                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat']">How it works</span>
+                        <Link href="/how-it-works" className={`relative flex items-center gap-2 transition-all group ${isActive('/how-it-works') ? 'text-white' : 'text-[#525D68] hover:text-white'}`}>
+                            {isActive('/how-it-works') && (
+                                <div className="absolute -bottom-[27px] left-1/2 -translate-x-1/2 w-[140%] h-[45px] bg-[radial-gradient(50%_100%_at_50%_100%,rgba(190,255,37,0.25)_0%,rgba(190,255,37,0)_100%)] pointer-events-none" />
+                            )}
+                            <img src="/figmaAssets/box.png" className={`w-4 h-4 object-contain relative z-10 ${isActive('/how-it-works') ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} />
+                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat'] relative z-10">How it works</span>
+                            {isActive('/how-it-works') && (
+                                <div className="absolute -bottom-[27px] left-0 w-full h-[3px] bg-[#BEFF25] rounded-t-[2px] shadow-[0_0_12px_rgba(190,255,37,0.6)] z-10" />
+                            )}
                         </Link>
-                        <Link href="/" className="flex items-center gap-2 text-[#525D68] hover:text-white transition-all group">
-                            <img src="/figmaAssets/image-180.png" className="w-4 h-4 opacity-50 group-hover:opacity-100 object-contain" />
-                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat']">FAQ</span>
+                        <Link href="/faq" className={`relative flex items-center gap-2 transition-all group ${isActive('/faq') ? 'text-white' : 'text-[#525D68] hover:text-white'}`}>
+                            {isActive('/faq') && (
+                                <div className="absolute -bottom-[27px] left-1/2 -translate-x-1/2 w-[140%] h-[45px] bg-[radial-gradient(50%_100%_at_50%_100%,rgba(190,255,37,0.25)_0%,rgba(190,255,37,0)_100%)] pointer-events-none" />
+                            )}
+                            <img src="/figmaAssets/image-180.png" className={`w-4 h-4 object-contain relative z-10 ${isActive('/faq') ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} />
+                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat'] relative z-10">FAQ</span>
+                            {isActive('/faq') && (
+                                <div className="absolute -bottom-[27px] left-0 w-full h-[3px] bg-[#BEFF25] rounded-t-[2px] shadow-[0_0_12px_rgba(190,255,37,0.6)] z-10" />
+                            )}
                         </Link>
-                        <Link href="/lottery-results" className="flex items-center gap-2 text-[#525D68] hover:text-white transition-all group">
-                            <img src="/figmaAssets/img4.png" className="w-4 h-4 opacity-50 group-hover:opacity-100 object-contain" />
-                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat']">Verify results</span>
+                        <Link href="/dashboard" className={`relative flex items-center gap-2 transition-all group ${isResultsActive ? 'text-white' : 'text-[#525D68] hover:text-white'}`}>
+                            {isResultsActive && (
+                                <div className="absolute -bottom-[27px] left-1/2 -translate-x-1/2 w-[140%] h-[45px] bg-[radial-gradient(50%_100%_at_50%_100%,rgba(190,255,37,0.25)_0%,rgba(190,255,37,0)_100%)] pointer-events-none" />
+                            )}
+                            <img src="/figmaAssets/img4.png" className={`w-4 h-4 object-contain relative z-10 ${isResultsActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} />
+                            <span className="text-[13px] font-black uppercase tracking-tight font-['Montserrat'] relative z-10">Verify results</span>
+                            {isResultsActive && (
+                                <div className="absolute -bottom-[27px] left-0 w-full h-[3px] bg-[#BEFF25] rounded-t-[2px] shadow-[0_0_12px_rgba(190,255,37,0.6)] z-10" />
+                            )}
                         </Link>
                     </nav>
                 </div>

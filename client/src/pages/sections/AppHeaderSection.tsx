@@ -5,6 +5,7 @@ import { SignUpModal } from "@/components/modals/SignUpModal";
 import { ForgotPasswordModal } from "@/components/modals/ForgotPasswordModal";
 import { VerificationCodeModal } from "@/components/modals/VerificationCodeModal";
 import { CreateNewPasswordModal } from "@/components/modals/CreateNewPasswordModal";
+import { useLocation, Link } from "wouter";
 
 export const AppHeaderSection = (): JSX.Element => {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -12,6 +13,9 @@ export const AppHeaderSection = (): JSX.Element => {
   const [isForgotOpen, setIsForgotOpen] = useState(false);
   const [isVerificationOpen, setIsVerificationOpen] = useState(false);
   const [isCreatePasswordOpen, setIsCreatePasswordOpen] = useState(false);
+  const [location] = useLocation();
+  const isActive = (path: string) => location === path;
+  const isResultsActive = location === "/dashboard" || location === "/lottery-results";
 
   const handleRecoverPassword = () => {
     setIsSignUpOpen(false);
@@ -38,9 +42,11 @@ export const AppHeaderSection = (): JSX.Element => {
     <header className="relative w-full border-b border-[#242d35] bg-[#12171d] z-[100]">
       {/* Tightened mobile padding (px-2) and height consistency */}
       <div className="w-full max-w-[1280px] mx-auto h-[56px] md:h-[80px] flex items-center justify-between px-2 sm:px-4 md:px-6">
-        <h1 className="font-['Luckiest_Guy'] text-white text-[22px] sm:text-[28px] md:text-[40px] tracking-tight leading-none uppercase shrink-0">
-          LOTTERY
-        </h1>
+        <Link href="/">
+          <h1 className="font-['Luckiest_Guy'] text-white text-[22px] sm:text-[28px] md:text-[40px] tracking-tight leading-none uppercase shrink-0 cursor-pointer">
+            LOTTERY
+          </h1>
+        </Link>
 
         {/* Tightened gap on mobile (gap-1) to fit all buttons on small screens */}
         <div className="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
@@ -91,6 +97,26 @@ export const AppHeaderSection = (): JSX.Element => {
             </Button>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Nav Links - Scrollable navigation for smaller screens */}
+      <div className="w-full bg-[#0d1218]/80 backdrop-blur-sm border-t border-white/5 overflow-x-auto no-scrollbar">
+        <nav className="flex items-center gap-6 px-4 py-3 min-w-max">
+          {[
+            { href: "/play-lottery", label: "Play now", icon: "/figmaAssets/img3.png", active: isActive('/play-lottery') },
+            { href: "/how-it-works", label: "How it works", icon: "/figmaAssets/box.png", active: isActive('/how-it-works') },
+            { href: "/faq", label: "FAQ", icon: "/figmaAssets/image-180.png", active: isActive('/faq') },
+            { href: "/dashboard", label: "Verify results", icon: "/figmaAssets/img4.png", active: isResultsActive },
+          ].map((item, idx) => (
+            <Link key={idx} href={item.href} className={`relative flex items-center gap-2 transition-all ${item.active ? 'text-white' : 'text-[#525D68]'}`}>
+              <img src={item.icon} className={`w-3.5 h-3.5 object-contain ${item.active ? 'opacity-100' : 'opacity-40'}`} alt={item.label} />
+              <span className="text-[11px] font-black uppercase tracking-tight font-['Montserrat'] whitespace-nowrap">{item.label}</span>
+              {item.active && (
+                <div className="absolute -bottom-[12px] left-0 w-full h-[2px] bg-[#BEFF25] rounded-t-[1px] shadow-[0_0_8px_rgba(190,255,37,0.5)] z-10" />
+              )}
+            </Link>
+          ))}
+        </nav>
       </div>
       <SignUpModal
         isOpen={isSignUpOpen}

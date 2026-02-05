@@ -12,15 +12,17 @@ import {
 } from "./sections/DesktopHomeSections";
 import { GameDemoSection } from "./sections/GameDemoSection";
 import { PrizeTiersSection } from "./sections/PrizeTiersSection";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import { SelectGameModal } from "@/components/modals/SelectGameModal";
+import { useEffect } from "react";
 
 export const HomePage = (): JSX.Element => {
   const isMobile = useIsMobile();
   const [isSelectGameOpen, setIsSelectGameOpen] = useState(false);
 
   useEffect(() => {
-    // Only show the game selection popup on Desktop
+    // Show the game selection popup on Desktop by default
     if (!isMobile) {
       const timer = setTimeout(() => {
         setIsSelectGameOpen(true);
@@ -38,13 +40,13 @@ export const HomePage = (): JSX.Element => {
             <div className="w-full flex flex-col gap-8 md:gap-12">
               <LotteryPlaySection />
               <LotteryVerificationSection />
-              {/* Removed extra sections for clean mobile view */}
+              <GameInstructionsSection />
+              <GameDemoSection />
               <PreviousWinsListSection />
             </div>
           </main>
           <FooterLinksSection />
         </div>
-        {/* Modal removed from mobile render */}
       </div>
     );
   }
@@ -53,6 +55,7 @@ export const HomePage = (): JSX.Element => {
     <DesktopLayout>
       <div className="w-full flex flex-col gap-12">
         <DesktopBannerSection />
+        <GameInstructionsSection />
         <GameDemoSection />
         <PrizeTiersSection />
         <PreviousWinsListSection />

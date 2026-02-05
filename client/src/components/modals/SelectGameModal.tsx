@@ -16,27 +16,27 @@ export const SelectGameModal: React.FC<SelectGameModalProps> = ({ isOpen, onClos
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-[820px] p-0 bg-[#0B0E11] border-none rounded-[36px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.8)]">
+            <DialogContent className="max-w-[650px] p-0 bg-[#0B0E11] border-none rounded-[36px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.8)]">
                 <style dangerouslySetInnerHTML={{
                     __html: `
                     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Outfit:wght@400;500;700&display=swap');
                 `}} />
 
-                <div className="relative p-10">
+                <div className="relative p-6">
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center justify-between mb-4">
                         <h2 className="text-white text-[28px] font-black font-['Montserrat'] tracking-tight">
                             Select a game
                         </h2>
                     </div>
 
                     {/* Content - Stacked Cards */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-3">
                         {/* Exact Number Card */}
                         <div
                             onClick={() => setSelectedGame("exact")}
                             className={cn(
-                                "group relative h-[180px] rounded-[24px] cursor-pointer transition-all duration-500 overflow-hidden border",
+                                "group relative h-[200px] rounded-[24px] cursor-pointer transition-all duration-500 overflow-hidden border",
                                 selectedGame === "exact"
                                     ? "border-[#B4FF25]/60 shadow-[0_0_50px_rgba(180,255,37,0.25)] scale-[1.01]"
                                     : "border-white/5 hover:border-white/10"
@@ -45,20 +45,19 @@ export const SelectGameModal: React.FC<SelectGameModalProps> = ({ isOpen, onClos
                                 background: 'linear-gradient(135deg, #192025 0%, #203510 50%, #192025 100%)',
                             }}
                         >
-                            {/* Inner Main Div with 3 Sections: Left, Center, Right */}
+                            {/* Inner Main Div */}
                             <div className="relative z-20 h-full w-full flex items-center px-8">
-                                {/* LEFT SECTION: Typography */}
-                                <div className="flex-1 flex flex-col justify-center space-y-1">
-                                    <h3 className="text-white text-[32px] font-black uppercase tracking-tight font-['Montserrat'] leading-none">
-                                        Exact Number
-                                    </h3>
-                                    <p className="text-white text-[15px] leading-[1.2] max-w-[280px] font-medium font-['Outfit'] opacity-70">
-                                        Choose 6 digits and the order of characters must match
-                                    </p>
-                                </div>
+                                {/* LEFT SECTION: Typography & Button */}
+                                <div className="flex-[1.5] flex flex-col justify-center space-y-5">
+                                    <div className="space-y-1">
+                                        <h3 className="text-white text-[32px] font-black uppercase tracking-tight font-['Montserrat'] leading-none">
+                                            Exact Number
+                                        </h3>
+                                        <p className="text-white text-[15px] leading-[1.2] max-w-[280px] font-medium font-['Outfit'] opacity-70">
+                                            Choose 6 digits and the order of characters must match
+                                        </p>
+                                    </div>
 
-                                {/* CENTER SECTION: Button */}
-                                <div className="flex-1 flex items-center justify-center">
                                     <Button
                                         className={cn(
                                             "w-[140px] h-[52px] rounded-[16px] font-black text-[18px] transition-all duration-300 shadow-xl border-none text-white",
@@ -103,20 +102,19 @@ export const SelectGameModal: React.FC<SelectGameModalProps> = ({ isOpen, onClos
                                 background: 'linear-gradient(135deg, #3D2411 0%, #5C3317 60%, #7A421D 100%)',
                             }}
                         >
-                            {/* Inner Main Div with 3 Sections: Left, Center, Right */}
+                            {/* Inner Main Div */}
                             <div className="relative z-20 h-full w-full flex items-center px-8">
-                                {/* LEFT SECTION: Typography */}
-                                <div className="flex-1 flex flex-col justify-center space-y-1">
-                                    <h3 className="text-white text-[32px] font-black uppercase tracking-tight font-['Montserrat'] leading-none">
-                                        Jumble Bumble
-                                    </h3>
-                                    <p className="text-white text-[15px] leading-[1.2] max-w-[280px] font-medium font-['Outfit'] opacity-70">
-                                        Choose 6 digits and the order of characters can be mixed
-                                    </p>
-                                </div>
+                                {/* LEFT SECTION: Typography & Button */}
+                                <div className="flex-[1.5] flex flex-col justify-center space-y-5">
+                                    <div className="space-y-1">
+                                        <h3 className="text-white text-[32px] font-black uppercase tracking-tight font-['Montserrat'] leading-none">
+                                            Jumble Bumble
+                                        </h3>
+                                        <p className="text-white text-[15px] leading-[1.2] max-w-[280px] font-medium font-['Outfit'] opacity-70">
+                                            Choose 6 digits and the order of characters can be mixed
+                                        </p>
+                                    </div>
 
-                                {/* CENTER SECTION: Button */}
-                                <div className="flex-1 flex items-center justify-center">
                                     <Button
                                         className={cn(
                                             "w-[140px] h-[52px] rounded-[16px] font-black text-[18px] transition-all duration-300 shadow-xl border-none text-white",
@@ -149,7 +147,7 @@ export const SelectGameModal: React.FC<SelectGameModalProps> = ({ isOpen, onClos
                         {/* Main Action Button */}
                         <Button
                             onClick={onClose}
-                            className="w-full h-[72px] mt-2 rounded-[24px] text-white font-black text-[26px] font-['Montserrat'] italic uppercase tracking-tighter shadow-[0_15px_35px_rgba(255,75,15,0.45)] border border-[#FF8962] active:scale-[0.97] transition-all duration-300"
+                            className="w-full h-[60px] mt-2 rounded-[24px] text-white font-black text-[22px] font-['Montserrat'] italic uppercase tracking-tighter shadow-[0_15px_35px_rgba(255,75,15,0.45)] border border-[#FF8962] active:scale-[0.97] transition-all duration-300"
                             style={{
                                 background: 'linear-gradient(180deg, #FF4B0F 0%, #FF6F3F 100%)',
                             }}

@@ -16,6 +16,13 @@ interface SignUpModalProps {
 }
 
 export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRecoverPassword, initialTab = "register" }) => {
+    const [activeTab, setActiveTab] = React.useState<"login" | "register">(initialTab);
+
+    // Sync internal state if prop changes when opening
+    React.useEffect(() => {
+        if (isOpen) setActiveTab(initialTab);
+    }, [isOpen, initialTab]);
+
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             {/* 
@@ -26,17 +33,18 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRec
             */}
             <DialogContent
                 aria-describedby={undefined}
-                className="max-w-[calc(100%-16px)] sm:max-w-[620px] p-0 bg-transparent border-none overflow-y-auto custom-scrollbar max-h-[85vh] focus:outline-none shadow-none block"
+                className="max-w-[calc(100%-16px)] sm:max-w-[620px] md:max-w-[960px] p-0 bg-transparent border-none overflow-y-auto custom-scrollbar max-h-[85vh] md:max-h-[700px] focus:outline-none shadow-none block"
             >
 
-                <div className="flex flex-col gap-3 w-full pb-6">
+                <div className="flex flex-col md:flex-row gap-3 md:gap-0 w-full pb-6 md:pb-0 md:bg-[#0F1419] md:rounded-[36px] md:overflow-hidden md:h-[650px]">
 
                     {/* 
                         Child Card 1: Banner Section
-                        - Height optimized for mobile (140px) vs tablet/desktop (250px)
+                        - Mobile: Top Banner
+                        - Desktop: Left Sidebar
                     */}
-                    <div className="relative w-full h-[140px] sm:h-[250px] overflow-hidden rounded-[24px] shrink-0"
-                        style={{ background: "linear-gradient(135deg, #A4D41C 0%, #8FB818 100%)" }}>
+                    <div className="relative w-full h-[140px] sm:h-[250px] md:h-full md:w-[420px] overflow-hidden rounded-[24px] md:rounded-none shrink-0"
+                        style={{ background: "linear-gradient(135deg, #A4D41C 0%, #76A800 100%)" }}>
 
                         {/* High-fidelity pattern overlay */}
                         <div className="absolute inset-0 opacity-[0.15] z-0" style={{
@@ -47,35 +55,34 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRec
                         {/* Top Edge Soft Gradient */}
                         <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10 pointer-events-none" />
 
-                        {/* Floating Assets - Scaled for mobile */}
-                        <img src="/figmaAssets/money1.png" className="absolute left-[5%] top-[5%] w-12 sm:w-24 opacity-40 rotate-[15deg] blur-[0.2px]" alt="" />
-                        <img src="/figmaAssets/money1.png" className="absolute left-[2%] bottom-[5%] w-16 sm:w-36 opacity-30 rotate-[-10deg]" alt="" />
-                        <img src="/figmaAssets/image-193-1.png" className="absolute right-[5%] top-[10%] w-10 sm:w-20 opacity-80 rotate-12 drop-shadow-xl" alt="" />
+                        {/* Floating Assets - Static (Register Style) */}
+                        <img src="/figmaAssets/money1.png" className="absolute left-[5%] top-[5%] md:left-[10%] md:top-[15%] w-12 sm:w-24 md:w-28 opacity-40 rotate-[15deg] blur-[0.2px]" alt="" />
+                        <img src="/figmaAssets/money1.png" className="absolute left-[2%] bottom-[5%] md:right-[5%] md:bottom-[30%] w-16 sm:w-36 md:w-32 opacity-30 rotate-[-10deg]" alt="" />
+                        <img src="/figmaAssets/image-193-1.png" className="absolute right-[5%] top-[10%] md:right-[15%] md:top-[20%] w-10 sm:w-20 md:w-24 opacity-80 rotate-12 drop-shadow-xl" alt="" />
+                        <img src="/figmaAssets/gift1.png" className="hidden md:block absolute left-[-20px] bottom-[-20px] w-40 z-30" alt="gift" />
+                        <img src="/figmaAssets/gift1.png" className="hidden md:block absolute right-[-20px] bottom-[-10px] w-32 z-30 scale-x-[-1]" alt="gift" />
 
-                        {/* Main Banner Graphic */}
-                        <div className="absolute right-[-4%] top-[20%] sm:top-[30%] h-[110%] sm:h-[115%] w-auto z-20 pointer-events-none">
+                        {/* Main Banner Graphic (Fox) */}
+                        <div className="absolute right-[-4%] top-[20%] sm:top-[30%] md:top-auto md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:right-auto md:w-[140%] h-[110%] sm:h-[115%] md:h-[75%] z-20 pointer-events-none flex justify-center">
                             <img
                                 src="/figmaAssets/banner.png"
-                                className="h-full w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+                                className="h-full w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.6)] md:object-bottom"
                                 alt="Fox Avatar"
                             />
                         </div>
 
-                        {/* Banner Typography - Adjusted padding/size for mobile */}
-                        <div className="relative z-30 px-5 sm:px-10 h-full flex flex-col justify-center items-start">
+                        {/* Banner Typography */}
+                        <div className="relative z-30 px-5 sm:px-10 md:px-0 md:w-full h-full flex flex-col justify-center items-start md:items-center md:justify-start md:pt-12">
                             <div className="bg-[#4D611D]/85 backdrop-blur-md px-3 py-1 sm:px-5 sm:py-1.5 rounded-full mb-2 sm:mb-4 border border-white/10 shadow-lg">
                                 <span className="text-white text-[9px] sm:text-[12px] font-black uppercase tracking-[0.18em] font-['Outfit']">Get Started</span>
                             </div>
 
-                            <div className="flex flex-col space-y-0">
-                                <h2 className="text-white text-[24px] sm:text-[46px] font-[950] font-['Montserrat'] leading-[0.82] uppercase tracking-[-0.04em] drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
-                                    In Seconds
+                            <div className="flex flex-col space-y-0 md:text-center">
+                                <h2 className="text-white text-[24px] sm:text-[46px] md:text-[32px] font-[950] font-['Montserrat'] leading-[0.82] uppercase tracking-[-0.04em] drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
+                                    In Seconds SignUp
                                 </h2>
-                                <h2 className="text-white text-[24px] sm:text-[46px] font-[950] font-['Montserrat'] leading-[0.82] uppercase tracking-[-0.04em] drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
-                                    SignUp &
-                                </h2>
-                                <h2 className="text-white text-[24px] sm:text-[46px] font-[950] font-['Montserrat'] leading-[0.82] uppercase tracking-[-0.04em] drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
-                                    Play Fast
+                                <h2 className="text-white text-[24px] sm:text-[46px] md:text-[32px] font-[950] font-['Montserrat'] leading-[0.82] uppercase tracking-[-0.04em] drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
+                                    And Play Instantly
                                 </h2>
                             </div>
                         </div>
@@ -84,19 +91,19 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRec
                     {/* 
                         Child Card 2: Form Section
                     */}
-                    <div className="w-full bg-[#0F1419] rounded-[24px] overflow-hidden shadow-xl border border-white/5">
-                        <div className="px-5 py-6 sm:px-12 sm:py-8 flex flex-col gap-5 sm:gap-6">
+                    <div className="w-full bg-[#0F1419] rounded-[24px] md:rounded-none overflow-hidden shadow-xl md:shadow-none border border-white/5 md:border-none md:flex-1 md:h-full md:flex md:flex-col md:overflow-y-auto custom-scrollbar">
+                        <div className="px-5 py-6 sm:px-12 sm:py-8 md:p-8 flex flex-col gap-5 sm:gap-6 md:gap-4">
 
                             {/* Form Header */}
-                            <div className="flex items-center justify-between">
-                                <DialogTitle className="text-white text-[24px] sm:text-[36px] font-bold font-['Montserrat'] tracking-tight">
-                                    Sign up
+                            <div className="flex items-center justify-between mb-2">
+                                <DialogTitle className="text-white text-[24px] sm:text-[36px] md:text-[28px] font-bold font-['Montserrat'] tracking-tight">
+                                    {activeTab === "register" ? "Sign up" : "Sign in"}
                                 </DialogTitle>
                             </div>
 
                             {/* Tabs - Height adjusted for mobile */}
-                            <Tabs defaultValue={initialTab} className="w-full" key={initialTab}>
-                                <TabsList className="bg-transparent w-full p-0 h-[45px] sm:h-[60px] border-b border-white/5 grid grid-cols-2 gap-0">
+                            <Tabs value={activeTab} onValueChange={(val) => setActiveTab(val as "login" | "register")} className="w-full">
+                                <TabsList className="bg-transparent w-full p-0 h-[45px] sm:h-[60px] md:h-[50px] border-b border-white/5 grid grid-cols-2 gap-0 relative mb-0">
                                     <TabsTrigger
                                         value="login"
                                         className="relative flex items-center justify-center h-full rounded-none font-semibold font-['Outfit'] text-[13px] sm:text-[18px] transition-all bg-transparent data-[state=active]:bg-[linear-gradient(180deg,rgba(175,231,56,0)_0%,rgba(149,209,23,0.4)_100%)] data-[state=active]:text-white text-[#525D68] border-none overflow-visible"
@@ -114,93 +121,93 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onRec
                                 </TabsList>
 
 
-                                <TabsContent value="register" className="mt-0">
-                                    <div className="flex flex-col gap-4 sm:gap-6 pt-2">
-                                        <div className="space-y-2">
-                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">E-mail</label>
+                                <TabsContent value="register" className="mt-0 flex flex-col">
+                                    <div className="flex flex-col gap-4 sm:gap-6 md:gap-3">
+                                        <div className="space-y-1.5 md:space-y-1">
+                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">E-mail</label>
                                             <Input
                                                 placeholder="Enter e-mail"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                                            <div className="space-y-2">
-                                                <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">First name</label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-4">
+                                            <div className="space-y-1.5 md:space-y-1">
+                                                <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">First name</label>
                                                 <Input
                                                     placeholder="Enter name"
-                                                    className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                    className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                                 />
                                             </div>
-                                            <div className="space-y-2">
-                                                <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">Last name</label>
+                                            <div className="space-y-1.5 md:space-y-1">
+                                                <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">Last name</label>
                                                 <Input
                                                     placeholder="Enter name"
-                                                    className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                    className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                                 />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-2">
-                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">Password</label>
+                                        <div className="space-y-1.5 md:space-y-1">
+                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">Password</label>
                                             <Input
                                                 type="password"
                                                 placeholder="Enter here"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
-                                        <div className="space-y-2">
-                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">Repeat password</label>
+                                        <div className="space-y-1.5 md:space-y-1">
+                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">Repeat password</label>
                                             <Input
                                                 type="password"
                                                 placeholder="Enter here"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
                                         {/* Verification Code */}
-                                        <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-6 items-end pt-2">
-                                            <div className="bg-[#1A2128] rounded-[12px] h-12 sm:h-16 flex items-center justify-center shadow-inner border border-white/5 overflow-hidden">
-                                                <span className="text-white font-bold text-lg sm:text-2xl select-none tracking-[0.2em] italic opacity-60" style={{ fontFamily: 'monospace' }}>cant</span>
+                                        <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[140px_1fr] md:grid-cols-[100px_1fr] gap-4 sm:gap-6 md:gap-4 items-end pt-1">
+                                            <div className="bg-[#1A2128] rounded-[12px] md:rounded-[10px] h-12 sm:h-16 md:h-11 flex items-center justify-center shadow-inner border border-white/5 overflow-hidden">
+                                                <span className="text-white font-bold text-lg sm:text-2xl md:text-lg select-none tracking-[0.2em] italic opacity-60" style={{ fontFamily: 'monospace' }}>cant</span>
                                             </div>
                                             <Input
-                                                placeholder="Enter code"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                placeholder="Enter code you see on captha"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
                                         <Button
-                                            className="w-full h-14 sm:h-20 bg-[linear-gradient(180deg,#FF6F3F_0%,#FF4B0F_100%)] text-white font-black text-lg sm:text-2xl rounded-[16px] shadow-[0_10px_25px_rgba(255,111,63,0.4)] transition-all active:scale-[0.98] font-['Outfit'] uppercase tracking-tight mt-4 sm:mt-6"
+                                            className="w-full h-14 sm:h-20 md:h-11 bg-[#FF4B0F] hover:bg-[#FF4B0F]/90 text-white font-bold text-lg sm:text-2xl md:text-[16px] rounded-[16px] md:rounded-[10px] shadow-none transition-all active:scale-[0.98] font-['Outfit'] tracking-wide mt-2"
                                         >
                                             Register account
                                         </Button>
                                     </div>
                                 </TabsContent>
 
-                                <TabsContent value="login" className="mt-0">
-                                    <div className="flex flex-col gap-4 sm:gap-6 pt-2">
-                                        <div className="space-y-2">
-                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">E-mail</label>
+                                <TabsContent value="login" className="mt-0 flex flex-col">
+                                    <div className="flex flex-col gap-4 sm:gap-6 md:gap-3">
+                                        <div className="space-y-1.5 md:space-y-1">
+                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">E-mail</label>
                                             <Input
                                                 placeholder="Enter e-mail"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#FF6F3F]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
-                                        <div className="space-y-2">
-                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] font-medium font-['Outfit'] ml-1">Password</label>
+                                        <div className="space-y-1.5 md:space-y-1">
+                                            <label className="text-[#6C7682] text-[13px] sm:text-[16px] md:text-[13px] font-medium font-['Outfit'] ml-1">Password</label>
                                             <Input
                                                 type="password"
                                                 placeholder="Enter here"
-                                                className="bg-[#151B22] border-none h-12 sm:h-16 rounded-[12px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#A4D41C]/30 transition-all text-[15px] sm:text-base px-5 sm:px-6 shadow-inner"
+                                                className="bg-[#151B22] border-none h-12 sm:h-16 md:h-11 rounded-[12px] md:rounded-[10px] text-white placeholder:text-[#323B44] font-['Outfit'] focus:ring-1 focus:ring-[#FF6F3F]/30 transition-all text-[15px] sm:text-base md:text-sm px-5 sm:px-6 md:px-4 shadow-inner"
                                             />
                                         </div>
 
                                         <Button
-                                            className="w-full h-14 sm:h-20 bg-[linear-gradient(180deg,#FF6F3F_0%,#FF4B0F_100%)] text-white font-black text-lg sm:text-2xl rounded-[16px] shadow-[0_10px_25px_rgba(255,111,63,0.4)] transition-all active:scale-[0.98] font-['Outfit'] uppercase tracking-tight mt-4 sm:mt-6"
+                                            className="w-full h-14 sm:h-20 md:h-11 bg-[#FF4B0F] hover:bg-[#FF4B0F]/90 text-white font-black text-lg sm:text-2xl md:text-[16px] rounded-[16px] md:rounded-[10px] shadow-[0_10px_25px_rgba(255,111,63,0.4)] md:shadow-none transition-all active:scale-[0.98] font-['Outfit'] uppercase tracking-tight mt-4 sm:mt-6 md:mt-2"
                                         >
-                                            Register
+                                            Login
                                         </Button>
 
                                         <div className="flex flex-col items-center justify-center gap-1 mt-2">

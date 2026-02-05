@@ -20,9 +20,9 @@ export const LotteryVerificationSection = (): JSX.Element => {
 
         <div className="flex items-center gap-4 md:gap-12 md:flex-1 justify-center md:justify-end h-full w-full md:w-auto">
           {/* Central Verify Badge - Optimized positioning */}
-          <div className="absolute left-[80%] md:left-1/2 -translate-x-1/2 top-[-20%] md:top-[-15%] lg:top-[-20%] z-20 pointer-events-none opacity-40 md:opacity-100">
+          <div className="absolute left-[70%] sm:left-[80%] md:left-1/2 -translate-x-1/2 top-[-20%] md:top-[-15%] lg:top-[-20%] z-20 pointer-events-none opacity-60 md:opacity-100">
             <img
-              className="w-28 h-28 md:w-60 md:h-60 lg:w-72 lg:h-72 object-contain"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-60 md:h-60 lg:w-72 lg:h-72 object-contain"
               alt="Verify Badge"
               src="/figmaAssets/verify-label-1.png"
             />

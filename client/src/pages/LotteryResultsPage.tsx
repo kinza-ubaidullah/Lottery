@@ -66,7 +66,7 @@ export const LotteryResultsPage = (): JSX.Element => {
 
                 {/* Results Banner */}
                 <Card
-                    className="relative w-full rounded-[24px] md:rounded-[40px] overflow-hidden border-none shadow-2xl min-h-[400px] md:min-h-[450px] flex items-center z-10"
+                    className="relative w-full rounded-[24px] md:rounded-[40px] overflow-hidden border-none shadow-2xl min-h-[280px] sm:min-h-[400px] md:min-h-[450px] flex items-center z-10"
                     style={{ background: 'linear-gradient(180deg, #13191F 0%, #1F262E 100%)' }}
                 >
                     {/* Background Atmosphere & Pattern */}
@@ -84,27 +84,27 @@ export const LotteryResultsPage = (): JSX.Element => {
                     {/* Main Character (Fox holding book) */}
                     <img
                         src="/figmaAssets/book.png"
-                        className="absolute right-0 bottom-0 h-[85%] md:h-[100%] w-auto object-contain z-10 pl-4 md:pl-10"
+                        className="absolute right-[-10%] sm:right-0 bottom-0 h-[85%] sm:h-[90%] md:h-[100%] w-auto object-contain z-10 pl-0 sm:pl-4 md:pl-10"
                         alt="Fox with results"
                     />
 
-                    {/* Floating Assets */}
-                    <img src="/figmaAssets/image-193-1.png" className="absolute top-[15%] left-[50%] w-8 md:w-20 opacity-60 animate-pulse z-0" alt="Coin" />
+                    {/* Floating Assets - Optimized for Mobile */}
+                    <img src="/figmaAssets/image-193-1.png" className="absolute top-[15%] left-[50%] w-8 md:w-20 opacity-60 animate-pulse z-0 hidden sm:block" alt="Coin" />
 
-                    <img src="/figmaAssets/money1.png" className="absolute top-[20%] right-[40%] w-12 md:w-32 opacity-80 z-20" alt="Cash 1" />
-                    <img src="/figmaAssets/money2.png" className="absolute bottom-[20%] left-[45%] w-14 md:w-36 z-20" alt="Cash 2" />
-                    <img src="/figmaAssets/money1.png" className="absolute bottom-[5%] left-[25%] w-10 md:w-28 z-0 opacity-40 h-auto" alt="Cash 3" />
+                    <img src="/figmaAssets/money1.png" className="absolute top-[20%] right-[40%] w-12 md:w-32 opacity-80 z-20 hidden sm:block" alt="Cash 1" />
+                    <img src="/figmaAssets/money2.png" className="absolute bottom-[20%] left-[45%] w-14 md:w-36 z-20 hidden sm:block" alt="Cash 2" />
+                    <img src="/figmaAssets/money1.png" className="absolute bottom-[5%] left-[25%] w-10 md:w-28 z-0 opacity-40 h-auto hidden sm:block" alt="Cash 3" />
 
-                    <img src="/figmaAssets/ball2.png" className="absolute bottom-[30%] left-[37%] w-10 md:w-24 z-20 drop-shadow-xl" alt="Ball Yellow 3" />
-                    <img src="/figmaAssets/ball8.png" className="absolute top-[25%] right-[5%] w-8 md:w-20 z-0 drop-shadow-lg" alt="Ball Orange 2" />
-                    <img src="/figmaAssets/ball7.png" className="absolute bottom-[5%] right-[2%] w-16 md:w-36 z-20 drop-shadow-2xl" alt="Ball Purple 7" />
+                    <img src="/figmaAssets/ball2.png" className="absolute bottom-[30%] left-[4%] sm:left-[37%] w-10 md:w-24 z-20 drop-shadow-xl opacity-60 sm:opacity-100" alt="Ball Yellow 3" />
+                    <img src="/figmaAssets/ball8.png" className="absolute top-[15%] right-[5%] w-8 md:w-20 z-0 drop-shadow-lg" alt="Ball Orange 2" />
+                    <img src="/figmaAssets/ball7.png" className="absolute bottom-[10%] right-[2%] w-12 sm:w-16 md:w-36 z-20 drop-shadow-2xl" alt="Ball Purple 7" />
 
                     <CardContent className="relative w-full h-full p-6 md:p-12 flex flex-col justify-center z-20 overflow-hidden">
-                        <div className="flex flex-col gap-2 md:gap-4 relative z-30 w-full md:w-[60%] h-full justify-center pt-8 md:pt-0 items-start text-left">
-                            <h1 className="text-white text-[36px] md:text-[64px] font-[900] font-['Montserrat'] leading-[0.8] tracking-tight uppercase">
+                        <div className="flex flex-col gap-2 md:gap-4 relative z-30 w-full md:w-[60%] h-full justify-center pt-4 sm:pt-8 md:pt-0 items-start text-left">
+                            <h1 className="text-white text-[28px] sm:text-[36px] md:text-[64px] font-[900] font-['Montserrat'] leading-[0.9] sm:leading-[0.8] tracking-tight uppercase max-w-[70%] sm:max-w-full">
                                 Check past lotteries
                             </h1>
-                            <p className="text-[#A1B4C6] text-lg md:text-2xl font-medium font-['Outfit'] max-w-[500px] leading-snug">
+                            <p className="text-[#A1B4C6] text-[15px] sm:text-lg md:text-2xl font-medium font-['Outfit'] max-w-[200px] sm:max-w-[500px] leading-snug">
                                 Check previous winners
                             </p>
                         </div>
