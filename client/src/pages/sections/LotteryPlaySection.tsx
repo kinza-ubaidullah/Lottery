@@ -18,7 +18,7 @@ export const LotteryPlaySection = (): JSX.Element => {
     <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 md:px-0">
       {/* LEFT MAIN HERO - lg:col-span-2 */}
       <Card
-        className="relative lg:col-span-2 rounded-[32px] overflow-hidden border-none shadow-2xl h-[480px] md:h-[540px] p-8 md:p-12 flex flex-col justify-between"
+        className="relative lg:col-span-2 rounded-[32px] overflow-hidden border-none shadow-2xl min-h-[650px] md:min-h-[540px] h-auto p-6 md:p-12 flex flex-col justify-between"
         style={{
           background: 'linear-gradient(135deg, #0B0E11 0%, #3D1C0A 100%)'
         }}
@@ -91,17 +91,17 @@ export const LotteryPlaySection = (): JSX.Element => {
               </div>
 
               {/* Main Buttons */}
-              <div className="flex gap-4">
+              <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
                 <Button
                   onClick={() => setLocation("/play-lottery")}
-                  className="h-[64px] px-12 rounded-[16px] font-['Montserrat'] font-black text-xl shadow-[0_15px_30px_rgba(255,75,15,0.4)] border border-white/10 active:scale-95 transition-all"
+                  className="h-[56px] md:h-[64px] px-0 md:px-12 w-full md:w-auto rounded-[16px] font-['Montserrat'] font-black text-xl shadow-[0_15px_30px_rgba(255,75,15,0.4)] border border-white/10 active:scale-95 transition-all"
                   style={{ background: 'linear-gradient(180deg, #FF6F3F 0%, #FF4B0F 100%)' }}
                 >
                   Play now
                 </Button>
                 <Button
                   onClick={() => setLocation("/lottery-results")}
-                  className="h-[64px] px-8 rounded-[16px] font-['Montserrat'] font-bold text-xl border border-[#3F2412] text-[#FFF0C3] backdrop-blur-md active:scale-95 transition-all"
+                  className="h-[56px] md:h-[64px] px-0 md:px-8 w-full md:w-auto rounded-[16px] font-['Montserrat'] font-bold text-xl border border-[#3F2412] text-[#FFF0C3] backdrop-blur-md active:scale-95 transition-all"
                   style={{ background: 'rgba(63, 36, 18, 0.4)' }}
                 >
                   Verify results
@@ -179,7 +179,7 @@ export const LotteryPlaySection = (): JSX.Element => {
             <span className="block text-[11px] font-black text-white/20 font-['Montserrat'] uppercase tracking-widest mt-1">Winning digits</span>
           </div>
 
-          <div className="relative z-20 flex justify-end pt-4">
+          <div className="relative z-20 flex justify-start pt-4">
             <Button className="h-[54px] px-12 rounded-[16px] bg-[#BDFF25] text-[#0B0E11] font-black text-base uppercase tracking-wider shadow-[0_10px_25px_rgba(189,255,37,0.4)] hover:bg-[#a6e020] active:scale-95 transition-all">
               Verify
             </Button>
