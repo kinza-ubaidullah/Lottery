@@ -8,8 +8,8 @@ export const LotteryVerificationSection = (): JSX.Element => {
         background: 'linear-gradient(180deg, #50B200 0%, #729100 100%)'
       }}
     >
-      <div className="flex items-center justify-between w-full gap-4 relative z-10">
-        <div className="flex flex-col gap-0 md:gap-1 z-30">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full gap-3 md:gap-4 relative z-10">
+        <div className="flex flex-col gap-0 md:gap-1 z-30 items-center md:items-start text-center md:text-left">
           <h3 className="text-white text-xl md:text-5xl font-bold tracking-tight leading-tight md:leading-none">
             Fully verifiable
           </h3>
@@ -18,9 +18,9 @@ export const LotteryVerificationSection = (): JSX.Element => {
           </p>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-12 flex-1 justify-end h-full">
+        <div className="flex items-center gap-4 md:gap-12 md:flex-1 justify-center md:justify-end h-full w-full md:w-auto">
           {/* Central Verify Badge - Optimized positioning */}
-          <div className="absolute left-[55%] md:left-1/2 -translate-x-1/2 top-[-10%] md:top-[-15%] lg:top-[-20%] z-20 pointer-events-none opacity-60 md:opacity-100">
+          <div className="absolute left-[80%] md:left-1/2 -translate-x-1/2 top-[-20%] md:top-[-15%] lg:top-[-20%] z-20 pointer-events-none opacity-40 md:opacity-100">
             <img
               className="w-28 h-28 md:w-60 md:h-60 lg:w-72 lg:h-72 object-contain"
               alt="Verify Badge"
@@ -29,7 +29,7 @@ export const LotteryVerificationSection = (): JSX.Element => {
           </div>
 
           <Button
-            className="w-[90px] h-[44px] md:w-[160px] md:h-[64px] rounded-[10px] md:rounded-[18px] text-[#253602] font-black text-sm md:text-2xl transition-all active:scale-95 border-none shadow-xl z-30"
+            className="w-full md:w-[160px] max-w-[200px] h-[36px] md:h-[64px] rounded-[10px] md:rounded-[18px] text-[#253602] font-black text-sm md:text-2xl transition-all active:scale-95 border-none shadow-xl z-30"
             style={{
               background: 'linear-gradient(180deg, #8FD811 0%, #E1FF75 100%)'
             }}
