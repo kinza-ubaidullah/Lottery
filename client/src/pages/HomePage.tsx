@@ -20,12 +20,14 @@ export const HomePage = (): JSX.Element => {
   const [isSelectGameOpen, setIsSelectGameOpen] = useState(false);
 
   useEffect(() => {
-    // Show the game selection popup on home screen load
-    const timer = setTimeout(() => {
-      setIsSelectGameOpen(true);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+    // Only show the game selection popup on Desktop
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setIsSelectGameOpen(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
   if (isMobile) {
     return (
@@ -36,14 +38,13 @@ export const HomePage = (): JSX.Element => {
             <div className="w-full flex flex-col gap-8 md:gap-12">
               <LotteryPlaySection />
               <LotteryVerificationSection />
-              <GameInstructionsSection />
-              <LatestBitcoinBlockSection />
+              {/* Removed extra sections for clean mobile view */}
               <PreviousWinsListSection />
             </div>
           </main>
           <FooterLinksSection />
         </div>
-        <SelectGameModal isOpen={isSelectGameOpen} onClose={() => setIsSelectGameOpen(false)} />
+        {/* Modal removed from mobile render */}
       </div>
     );
   }
