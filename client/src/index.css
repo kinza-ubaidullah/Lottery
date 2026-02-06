@@ -264,3 +264,61 @@
     background: #323B44;
   }
 }
+
+/* Preloader Animations */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 4s linear infinite;
+}
+
+.animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+/* Global Smoothness & Responsiveness Improvements */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  /* Remove tap highlight on mobile for cleaner feel */
+}
+
+body {
+  /* Prevent horizontal scroll jank */
+  overflow-x: hidden;
+  width: 100%;
+  overscroll-behavior-y: none;
+  /* Prevent bounce effect on lists which causes 'stuck' feeling sometimes */
+}
+
+/* Hardware acceleration for common animated parts to reduce jank */
+.animate-spin,
+.animate-pulse,
+.transition-all {
+  will-change: transform, opacity;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}

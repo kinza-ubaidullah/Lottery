@@ -92,7 +92,7 @@ export const DesktopSidebar = () => {
                 <SidebarItem variant="orange" iconSrc="/figmaAssets/img3.png" label="Home" isActive={isActive('/how-it-works')} onClick={() => setLocation('/how-it-works')} />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/ball8.png" label="Lottery" isActive={isActive('/play-lottery')} onClick={() => setLocation('/play-lottery')} />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/img4.png" label="Results" isActive={isActive('/lottery-results')} onClick={() => setLocation('/lottery-results')} />
-                <SidebarItem variant="orange" iconSrc="/figmaAssets/champion.png" label="Leaders" largeIcon={true} />
+                <SidebarItem variant="orange" iconSrc="/figmaAssets/champion.png" label="Leaders" largeIcon={true} isActive={isActive('/leaders')} onClick={() => setLocation('/leaders')} />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/img5.png" label="Affiliate" />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/image-180.png" label="FAQ" isActive={isActive('/faq')} onClick={() => setLocation('/faq')} />
             </nav>
