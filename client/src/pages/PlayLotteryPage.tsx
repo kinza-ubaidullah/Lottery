@@ -6,15 +6,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { LotteryDrawCard } from "@/components/cards/LotteryDrawCard";
 import { PreviousWinsListSection } from "./sections/PreviousWinsListSection";
 import { DesktopLayout } from "@/components/layout/DesktopLayout";
+import { useLocation } from "wouter";
+import { BackButton } from "@/components/ui/BackButton";
 
 export const PlayLotteryPage = (): JSX.Element => {
     const isMobile = useIsMobile();
+    const [, setLocation] = useLocation();
 
     const content = (
         <div className="w-full flex flex-col items-center">
             {isMobile && <AppHeaderSection />}
 
             <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex flex-col gap-12"}>
+
+                {/* Back Button */}
+                {!isMobile && (
+                    <div className="w-full flex justify-start mb-[-24px]">
+                        <BackButton label="Back to Home" href="/" />
+                    </div>
+                )}
 
                 {/* Main Banner - Designed to match the screenshot */}
                 <Card
@@ -56,7 +66,9 @@ export const PlayLotteryPage = (): JSX.Element => {
                         <div className="flex flex-col gap-6 md:gap-8 relative z-30 w-full md:w-[60%] h-full justify-center pt-8 md:pt-0 items-start text-left">
 
                             {/* "PLAY LOTTERY" Button */}
-                            <button className="inline-flex items-center gap-2 md:gap-3 w-[200px] md:w-[280px] h-[40px] md:h-[60px] rounded-[8px] md:rounded-[12px] pl-1.5 pr-3 pt-1 pb-2 shadow-[0_4px_20px_rgba(143,216,17,0.3)] z-40 transition-transform hover:scale-105 active:scale-95 text-left items-center"
+                            <button
+                                onClick={() => setLocation("/verify-results")}
+                                className="inline-flex items-center gap-2 md:gap-3 w-[200px] md:w-[280px] h-[40px] md:h-[60px] rounded-[8px] md:rounded-[12px] pl-1.5 pr-3 pt-1 pb-2 shadow-[0_4px_20px_rgba(143,216,17,0.3)] z-40 transition-transform hover:scale-105 active:scale-95 text-left items-center"
                                 style={{ background: 'linear-gradient(180deg, #8FD811 0%, #E1FF75 100%)' }}>
                                 <div className="w-7 h-7 md:w-11 md:h-11 bg-[#FF6B26] rounded-full flex items-center justify-center shrink-0">
                                     <span className="text-white text-[12px] md:text-[20px] font-bold">6</span>

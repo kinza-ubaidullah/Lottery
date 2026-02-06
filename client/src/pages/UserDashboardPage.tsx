@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { AppHeaderSection } from "./sections/AppHeaderSection";
 import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { useLocation } from "wouter";
+import { BackButton } from "@/components/ui/BackButton";
 
 const stats = [
     {
@@ -120,6 +121,11 @@ export const UserDashboardPage = (): JSX.Element => {
 
     const content = (
         <div className="w-full flex flex-col gap-6 md:gap-8 px-4 py-6 md:px-8 md:py-12 max-w-[1400px] mx-auto min-h-screen">
+            {/* Back Button */}
+            <div className="w-full flex justify-start mb-2">
+                <BackButton label="Back to Home" href="/" />
+            </div>
+
             {/* Top Header Section */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4">
                 <div className="flex items-center gap-3">
@@ -175,21 +181,19 @@ export const UserDashboardPage = (): JSX.Element => {
             {/* DASHBOARD CONTENT */}
             {activeTab === "Dashboard" && (
                 <>
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full">
+                    {/* Stats Grid - Fixed columns for mobile/tablet */}
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">
                         {stats.map((stat, idx) => (
-                            <Card key={idx} className={`border-none rounded-[20px] p-5 flex flex-col justify-between h-[120px] relative overflow-hidden group hover:scale-[1.02] transition-transform ${stat.bg}`}>
-                                <div className="flex items-start justify-between z-10 w-full mb-3">
-                                    <div className={`w-[54px] h-[54px] rounded-[12px] flex items-center justify-center border border-white/10 shrink-0 ${stat.iconBg}`}>
-                                        {/* Icon placeholder - using Lucide if image fails */}
-                                        <Ticket className={`w-6 h-6 ${stat.accent}`} />
+                            <Card key={idx} className={`border-none rounded-[16px] md:rounded-[20px] p-4 md:p-5 flex flex-col justify-between h-[100px] md:h-[120px] relative overflow-hidden group hover:scale-[1.02] transition-transform ${stat.bg}`}>
+                                <div className="flex items-start justify-between z-10 w-full mb-2 md:mb-3">
+                                    <div className={`w-8 h-8 md:w-[54px] md:h-[54px] rounded-[8px] md:rounded-[12px] flex items-center justify-center border border-white/10 shrink-0 ${stat.iconBg}`}>
+                                        <Ticket className={`w-4 h-4 md:w-6 md:h-6 ${stat.accent}`} />
                                     </div>
-                                    <span className="text-white text-[22px] md:text-[26px] font-black font-['Montserrat'] tracking-tight leading-none pt-2">{stat.value}</span>
+                                    <span className="text-white text-[16px] md:text-[26px] font-black font-['Montserrat'] tracking-tight leading-none pt-1 md:pt-2">{stat.value}</span>
                                 </div>
-                                <span className="text-[#A1B4C6] text-[13px] md:text-[14px] font-medium font-['Outfit'] z-10 leading-tight">{stat.label}</span>
+                                <span className="text-[#A1B4C6] text-[11px] md:text-[14px] font-medium font-['Outfit'] z-10 leading-tight truncate">{stat.label}</span>
 
-                                {/* Background Glow */}
-                                <div className={`absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-20 blur-xl ${stat.iconBg}`} />
+                                <div className={`absolute -right-4 -bottom-4 w-16 h-16 md:w-24 md:h-24 rounded-full opacity-20 blur-xl ${stat.iconBg}`} />
                             </Card>
                         ))}
                     </div>
@@ -202,14 +206,14 @@ export const UserDashboardPage = (): JSX.Element => {
                         {/* Scrollable Container Wrapper */}
                         <div className="relative">
                             <div className="w-full overflow-x-auto custom-scrollbar pb-4">
-                                <div className="min-w-[1200px]">
+                                <div className="min-w-[800px] md:min-w-[1200px]">
                                     {/* Table Header */}
-                                    <div className="grid grid-cols-[1fr_1.2fr_1.2fr_2fr_2fr_1fr] gap-4 px-6 text-[#525D68] text-[13px] font-bold font-['Montserrat'] uppercase mb-2">
+                                    <div className="grid grid-cols-[100px_1fr_1fr_1.8fr_1.8fr_80px] md:grid-cols-[1fr_1.2fr_1.2fr_2fr_2fr_1fr] gap-4 px-4 md:px-6 text-[#525D68] text-[11px] md:text-[13px] font-bold font-['Montserrat'] uppercase mb-2">
                                         <span>Date</span>
-                                        <span>Ticket amount</span>
-                                        <span>Ticket price</span>
-                                        <span className="pl-8">Numbers</span>
-                                        <span>Winning numbers</span>
+                                        <span>Tickets</span>
+                                        <span>Price</span>
+                                        <span className="pl-4 md:pl-8 font-extrabold text-[#BDFF25]">Numbers</span>
+                                        <span>Winning</span>
                                         <span className="text-right">Profit</span>
                                     </div>
 
@@ -223,7 +227,7 @@ export const UserDashboardPage = (): JSX.Element => {
                                             return (
                                                 <div
                                                     key={idx}
-                                                    className={`grid grid-cols-[1fr_1.2fr_1.2fr_2fr_2fr_1fr] gap-4 items-center px-6 py-4 rounded-[16px] transition-colors group
+                                                    className={`grid grid-cols-[100px_1fr_1fr_1.8fr_1.8fr_80px] md:grid-cols-[1fr_1.2fr_1.2fr_2fr_2fr_1fr] gap-4 items-center px-4 md:px-6 py-4 rounded-[16px] transition-colors group
                                                 ${isTransparent ? 'bg-transparent border-none' : 'bg-[#141A20]/50 hover:bg-[#141A20] border border-white/5'}
                                                 ${isBlurred ? 'blur-sm opacity-30 select-none pointer-events-none' : ''}
                                             `}
@@ -750,7 +754,7 @@ export const UserDashboardPage = (): JSX.Element => {
                                 Create ticket
                             </Button>
                             <Button
-                                onClick={() => setLocation("/faq")}
+                                onClick={() => setLocation("/browse-faq")}
                                 className="w-full sm:w-auto h-[44px] px-6 text-white font-bold font-['Montserrat'] text-[14px] rounded-[10px] bg-[linear-gradient(180deg,#1F1813_0%,#E36826_100%)] border border-transparent shadow-lg whitespace-nowrap"
                                 style={{
                                     backgroundImage: 'linear-gradient(#1F1813, #E36826), linear-gradient(180deg, rgba(255, 131, 63, 0.2) 0%, rgba(255, 179, 138, 0.2) 100%)',

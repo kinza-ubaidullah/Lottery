@@ -8,6 +8,8 @@ import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { Trophy, Medal, Crown, Star, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { BackButton } from "@/components/ui/BackButton";
+
 export const LeadersPage = (): JSX.Element => {
     const isMobile = useIsMobile();
     const [activeTab, setActiveTab] = useState("Biggest single win");
@@ -36,6 +38,11 @@ export const LeadersPage = (): JSX.Element => {
         <div className="w-full flex flex-col items-center" style={{ background: '#0D1216' }}>
             {isMobile && <AppHeaderSection />}
 
+            {/* Back Button */}
+            <div className="w-full px-4 md:px-10 pt-6 flex justify-start">
+                <BackButton label="Back to Home" href="/" />
+            </div>
+
             <main className={cn(
                 "w-full flex-1 flex flex-col gap-8 overflow-visible",
                 isMobile ? "max-w-[1280px] px-4 py-8" : "px-4 md:px-10"
@@ -56,21 +63,21 @@ export const LeadersPage = (): JSX.Element => {
                     </div>
 
                     {/* Content Layer */}
-                    <div className="relative z-10 flex flex-col items-center justify-center w-full h-full pb-8">
+                    <div className="relative z-10 flex flex-col items-center justify-center w-full h-full pb-8 pt-4 md:pt-0">
                         {/* Title */}
-                        <h1 className="text-[#E7F6E7] text-[32px] md:text-[48px] font-black font-['Montserrat'] uppercase tracking-tight leading-none text-center drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] mb-2 mt-4">
+                        <h1 className="text-[#E7F6E7] text-[28px] sm:text-[32px] md:text-[48px] font-black font-['Montserrat'] uppercase tracking-tight leading-none text-center drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] mb-2 mt-4">
                             Hall of Fame
                         </h1>
 
                         {/* Character Image (Fox) */}
-                        <div className="relative h-[65%] w-auto flex items-center justify-center">
+                        <div className="relative h-[55%] md:h-[65%] w-auto flex items-center justify-center mt-2 md:mt-0">
                             <img
                                 src="/figmaAssets/img14.png"
                                 className="h-full w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10"
                                 alt="Hall of Fame Character"
                             />
                             {/* Back glow for character */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-[#E36826]/30 blur-[80px] rounded-full -z-10" />
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] md:w-[200px] h-[160px] md:h-[200px] bg-[#E36826]/30 blur-[60px] md:blur-[80px] rounded-full -z-10" />
                         </div>
                     </div>
 
@@ -96,11 +103,11 @@ export const LeadersPage = (): JSX.Element => {
                 </div>
 
                 {/* Top 3 Cards Grid - Premium Replica */}
-                <div className="w-full max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 mt-16 px-4">
+                <div className="w-full max-w-[1240px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 mb-8 mt-16 px-4">
                     {/* Card 1: Gold (Left) - Styled with Orange Gradient */}
-                    <div className="relative group mt-12 md:mt-0">
+                    <div className="relative group mt-12 sm:mt-8 md:mt-0">
                         {/* 3D Floating Trophy */}
-                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                        <div className="absolute -top-[45px] md:-top-[60px] left-1/2 -translate-x-1/2 w-[100px] h-[100px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
                                 src="/figmaAssets/trophy.png"
                                 loading="lazy"
@@ -111,7 +118,7 @@ export const LeadersPage = (): JSX.Element => {
 
                         {/* Card Body */}
                         <div
-                            className="w-full md:w-auto h-[140px] md:h-[160px] rounded-[12px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,115,0,0.15)] relative overflow-hidden border border-[#FF7C11]/30 group-hover:border-[#FF7C11]/60 transition-all duration-300"
+                            className="w-full md:w-auto h-[130px] md:h-[160px] rounded-[12px] p-4 md:p-5 pt-10 md:pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,115,0,0.15)] relative overflow-hidden border border-[#FF7C11]/30 group-hover:border-[#FF7C11]/60 transition-all duration-300"
                             style={{
                                 background: 'linear-gradient(180deg, rgba(255, 115, 0, 0.06) 0%, rgba(255, 124, 17, 0.16) 100%)'
                             }}
@@ -121,24 +128,24 @@ export const LeadersPage = (): JSX.Element => {
 
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
                                 {/* User Info */}
-                                <div className="flex items-center gap-3">
-                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/30">
+                                <div className="flex items-center gap-2 md:gap-3">
+                                    <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-[10px] md:rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/30">
                                         <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[13px] md:text-[15px] uppercase tracking-wide drop-shadow-md truncate max-w-[80px] md:max-w-none">BONUSss</span>
                                 </div>
 
                                 {/* Prize Pill */}
-                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
-                                    <span className="text-[#F0D5C5] font-bold text-[13px] font-['Montserrat']">569 USD</span>
+                                <div className="w-[100px] md:w-[128px] h-[36px] md:h-[44px] rounded-[8px] px-2 md:px-4 py-2 md:py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
+                                    <span className="text-[#F0D5C5] font-bold text-[11px] md:text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Card 2: Silver (Center) */}
-                    <div className="relative group mt-12 md:mt-0">
-                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                    <div className="relative group mt-12 sm:mt-8 md:mt-0">
+                        <div className="absolute -top-[45px] md:-top-[60px] left-1/2 -translate-x-1/2 w-[100px] h-[100px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
                                 src="/figmaAssets/trophy.png"
                                 loading="lazy"
@@ -148,7 +155,7 @@ export const LeadersPage = (): JSX.Element => {
                         </div>
 
                         <div
-                            className="h-[140px] md:h-[160px] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(0,208,255,0.15)] relative overflow-hidden border border-[#4FD6FF]/30 group-hover:border-[#4FD6FF]/60 transition-all duration-300"
+                            className="h-[130px] md:h-[160px] rounded-[24px] p-4 md:p-5 pt-10 md:pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(0,208,255,0.15)] relative overflow-hidden border border-[#4FD6FF]/30 group-hover:border-[#4FD6FF]/60 transition-all duration-300"
                             style={{
                                 background: 'linear-gradient(180deg, rgba(0, 208, 255, 0.06) 0%, rgba(212, 246, 255, 0.16) 100%)'
                             }}
@@ -156,23 +163,23 @@ export const LeadersPage = (): JSX.Element => {
                             <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#4FD6FF]/10 to-transparent opacity-40 pointer-events-none" />
 
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
-                                <div className="flex items-center gap-3">
-                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.4)] border border-white/10 ring-2 ring-[#FF6B26]/20">
+                                <div className="flex items-center gap-2 md:gap-3">
+                                    <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-[10px] md:rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.4)] border border-white/10 ring-2 ring-[#FF6B26]/20">
                                         <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[13px] md:text-[15px] uppercase tracking-wide drop-shadow-md truncate max-w-[80px] md:max-w-none">BONUSss</span>
                                 </div>
 
-                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
-                                    <span className="text-[#B4C6D6] font-bold text-[13px] font-['Montserrat']">569 USD</span>
+                                <div className="w-[100px] md:w-[128px] h-[36px] md:h-[44px] rounded-[8px] px-2 md:px-4 py-2 md:py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
+                                    <span className="text-[#B4C6D6] font-bold text-[11px] md:text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Card 3: Bronze (Right) */}
-                    <div className="relative group mt-12 md:mt-0">
-                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                    <div className="relative group mt-12 sm:mt-8 md:mt-0">
+                        <div className="absolute -top-[45px] md:-top-[60px] left-1/2 -translate-x-1/2 w-[100px] h-[100px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
                                 src="/figmaAssets/trophy.png"
                                 loading="lazy"
@@ -182,7 +189,7 @@ export const LeadersPage = (): JSX.Element => {
                         </div>
 
                         <div
-                            className="h-[140px] md:h-[160px] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,117,117,0.15)] relative overflow-hidden border border-[#FF7575]/30 group-hover:border-[#FF7575]/60 transition-all duration-300"
+                            className="h-[130px] md:h-[160px] rounded-[24px] p-4 md:p-5 pt-10 md:pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,117,117,0.15)] relative overflow-hidden border border-[#FF7575]/30 group-hover:border-[#FF7575]/60 transition-all duration-300"
                             style={{
                                 background: 'linear-gradient(180deg, rgba(255, 117, 117, 0.06) 0%, rgba(255, 102, 64, 0.16) 100%)'
                             }}
@@ -190,16 +197,16 @@ export const LeadersPage = (): JSX.Element => {
                             <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#FF7575]/10 to-transparent opacity-40 pointer-events-none" />
 
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
-                                <div className="flex items-center gap-3">
-                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/20">
+                                <div className="flex items-center gap-2 md:gap-3">
+                                    <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-[10px] md:rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/20">
                                         <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[13px] md:text-[15px] uppercase tracking-wide drop-shadow-md truncate max-w-[80px] md:max-w-none">BONUSss</span>
                                 </div>
 
                                 {/* Prize Pill */}
-                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
-                                    <span className="text-[#D6B4B4] font-bold text-[13px] font-['Montserrat']">569 USD</span>
+                                <div className="w-[100px] md:w-[128px] h-[36px] md:h-[44px] rounded-[8px] px-2 md:px-4 py-2 md:py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
+                                    <span className="text-[#D6B4B4] font-bold text-[11px] md:text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
                         </div>
@@ -223,26 +230,26 @@ export const LeadersPage = (): JSX.Element => {
                             <tbody>
                                 {tableData.map((row, idx) => (
                                     <tr key={idx} className="group transition-all duration-300 hover:-translate-y-1">
-                                        <td className="px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-l border-[#1E262E] group-hover:border-[#2A343E] pl-8">
-                                            <div className="w-10 h-10 rounded-[12px] bg-[#252F39] flex items-center justify-center text-white font-bold font-['Montserrat'] shadow-inner border border-white/5">
+                                        <td className="px-4 md:px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-l border-[#1E262E] group-hover:border-[#2A343E] pl-4 md:pl-8 overflow-hidden">
+                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-[8px] md:rounded-[12px] bg-[#252F39] flex items-center justify-center text-white font-bold font-['Montserrat'] text-[12px] md:text-base shadow-inner border border-white/5 shrink-0">
                                                 {idx + 4}
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 rounded-[10px] bg-[#FF6B26] flex items-center justify-center overflow-hidden border border-white/10 shadow-lg">
+                                        <td className="px-4 md:px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                            <div className="flex items-center gap-2 md:gap-4">
+                                                <div className="w-8 h-8 md:w-10 md:h-10 rounded-[8px] md:rounded-[10px] bg-[#FF6B26] flex items-center justify-center overflow-hidden border border-white/10 shadow-lg shrink-0">
                                                     <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                                 </div>
-                                                <span className="text-white font-bold font-['Montserrat'] text-[15px] tracking-wide">{row.name}</span>
+                                                <span className="text-white font-bold font-['Montserrat'] text-[13px] md:text-[15px] tracking-wide truncate max-w-[80px] md:max-w-[120px] lg:max-w-none">{row.name}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                        <td className="px-4 md:px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
                                             <div className="flex items-center gap-2.5">
-                                                <div className="w-2.5 h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)]" />
-                                                <span className="text-white font-bold text-[14px] font-['Montserrat'] tracking-wide">+ {row.purchased}</span>
+                                                <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)] shrink-0" />
+                                                <span className="text-white font-bold text-[12px] md:text-[14px] font-['Montserrat'] tracking-wide truncate">{row.purchased}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                        <td className="px-4 md:px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E] hidden sm:table-cell">
                                             <div className="flex items-center gap-2.5">
                                                 <div className="flex items-center justify-center w-6 h-6">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,10 +260,10 @@ export const LeadersPage = (): JSX.Element => {
                                                 <span className="text-[#A1B4C6] font-medium text-[14px] font-['Montserrat']">{row.tickets}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-r border-[#1E262E] group-hover:border-[#2A343E] pr-8">
+                                        <td className="px-4 md:px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-r border-[#1E262E] group-hover:border-[#2A343E] pr-4 md:pr-8">
                                             <div className="flex items-center gap-2.5">
-                                                <div className="w-2.5 h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)]" />
-                                                <span className="text-white font-bold text-[14px] font-['Montserrat'] tracking-wide">+ {row.price}</span>
+                                                <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)] shrink-0" />
+                                                <span className="text-white font-bold text-[12px] md:text-[14px] font-['Montserrat'] tracking-wide truncate">{row.price}</span>
                                             </div>
                                         </td>
                                     </tr>

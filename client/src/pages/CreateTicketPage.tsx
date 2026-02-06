@@ -8,6 +8,8 @@ import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { PlusCircle, ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 
+import { BackButton } from "@/components/ui/BackButton";
+
 export const CreateTicketPage = (): JSX.Element => {
     const isMobile = useIsMobile();
     const [, setLocation] = useLocation();
@@ -15,6 +17,11 @@ export const CreateTicketPage = (): JSX.Element => {
     const content = (
         <div className="w-full flex flex-col items-center" style={{ background: '#0D1216' }}>
             {isMobile && <AppHeaderSection />}
+
+            {/* Back Button */}
+            <div className="w-full px-4 md:px-10 pt-6 flex justify-start">
+                <BackButton label="Back to Support" href="/faq" />
+            </div>
 
             <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-10 px-4 py-8 md:px-8 md:py-16" : "w-full flex-1 flex flex-col gap-10 px-4 md:px-10 overflow-visible"}>
 

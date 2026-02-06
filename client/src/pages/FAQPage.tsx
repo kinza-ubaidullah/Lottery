@@ -7,6 +7,8 @@ import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
+import { BackButton } from "@/components/ui/BackButton";
+
 export const FAQPage = (): JSX.Element => {
     const isMobile = useIsMobile();
     const [, setLocation] = useLocation();
@@ -14,6 +16,11 @@ export const FAQPage = (): JSX.Element => {
     const content = (
         <div className="w-full flex flex-col items-center">
             {isMobile && <AppHeaderSection />}
+
+            {/* Back Button */}
+            <div className="w-full px-4 md:px-10 pt-6 flex justify-start">
+                <BackButton label="Back to Dashboard" href="/dashboard" />
+            </div>
 
             <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex-1 flex flex-col gap-12 px-4 md:px-10 overflow-visible"}>
 
@@ -32,29 +39,29 @@ export const FAQPage = (): JSX.Element => {
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <h3 className="text-[#BDFF25] text-[18px] md:text-[20px] font-black font-['Montserrat'] leading-tight uppercase tracking-tight">
+                                    <h3 className="text-[#BDFF25] text-[16px] sm:text-[18px] md:text-[20px] font-black font-['Montserrat'] leading-tight uppercase tracking-tight">
                                         Lottery prize not credited after draw
                                     </h3>
-                                    <p className="text-[#4A5561] text-[14px] font-medium font-['Montserrat'] line-clamp-1">
+                                    <p className="text-[#4A5561] text-[13px] sm:text-[14px] font-medium font-['Montserrat'] line-clamp-1">
                                         Hello, I participated in the lottery draw that took place earlier today and...
                                     </p>
                                 </div>
 
-                                <div className="flex items-center flex-wrap gap-4 mt-1">
-                                    <div className="flex items-center gap-2.5 h-[30px] md:h-[34px] px-2 md:px-3 rounded-[8px] bg-gradient-to-r from-[#E36826] to-[#7A3612] shadow-[0_4px_12px_rgba(227,104,38,0.2)] shrink-0">
-                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#E36826] flex items-center justify-center">
-                                            <Ticket className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
+                                <div className="flex items-center flex-wrap gap-2 md:gap-4 mt-1">
+                                    <div className="flex items-center gap-1.5 md:gap-2.5 h-[28px] md:h-[34px] px-2 md:px-3 rounded-[6px] md:rounded-[8px] bg-gradient-to-r from-[#E36826] to-[#7A3612] shadow-[0_4px_12px_rgba(227,104,38,0.2)] shrink-0">
+                                        <div className="w-3.5 h-3.5 md:w-5 md:h-5 rounded-full bg-[#E36826] flex items-center justify-center">
+                                            <Ticket className="w-2 md:w-3 text-white" />
                                         </div>
-                                        <span className="text-white text-[10px] md:text-[12px] font-bold font-['Montserrat'] whitespace-nowrap">Ticket <span className="text-white">66454244</span></span>
+                                        <span className="text-white text-[9px] md:text-[12px] font-bold font-['Montserrat'] whitespace-nowrap uppercase tracking-tight">Ticket <span className="text-white">66454244</span></span>
                                     </div>
 
-                                    <div className="flex items-center gap-2 text-[#525D68]">
-                                        <Clock className="w-4 h-4" />
-                                        <span className="text-[13px] font-bold font-['Montserrat']">2 min ago</span>
+                                    <div className="flex items-center gap-1.5 text-[#525D68]">
+                                        <Clock className="w-3.5 h-3.5" />
+                                        <span className="text-[11px] md:text-[13px] font-bold font-['Montserrat'] whitespace-nowrap">2 min ago</span>
                                     </div>
 
-                                    <div className="bg-[#BDFF25] px-3 py-1 rounded-[6px] shadow-[0_4px_10px_rgba(189,255,37,0.2)]">
-                                        <span className="text-black text-[13px] font-bold font-['Montserrat'] uppercase">Active</span>
+                                    <div className="bg-[#BDFF25] px-2 md:px-3 py-0.5 md:py-1 rounded-[4px] md:rounded-[6px] shadow-[0_4px_10px_rgba(189,255,37,0.2)] shrink-0">
+                                        <span className="text-black text-[11px] md:text-[13px] font-bold font-['Montserrat'] uppercase">Active</span>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +119,10 @@ export const FAQPage = (): JSX.Element => {
                             </Card>
 
                             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full overflow-visible">
-                                <Button className="w-full sm:flex-1 h-[52px] bg-[#242D35] hover:bg-[#2e3943] text-white font-black font-['Montserrat'] text-[12px] md:text-[13px] rounded-[10px] border border-white/5 uppercase tracking-normal whitespace-nowrap shrink-0">
+                                <Button
+                                    onClick={() => setLocation("/browse-faq")}
+                                    className="w-full sm:flex-1 h-[52px] bg-[#242D35] hover:bg-[#2e3943] text-white font-black font-['Montserrat'] text-[12px] md:text-[13px] rounded-[10px] border border-white/5 uppercase tracking-normal whitespace-nowrap shrink-0"
+                                >
                                     Browse FAQ
                                 </Button>
                                 <Button
@@ -144,28 +154,28 @@ export const FAQPage = (): JSX.Element => {
                                         <span className="text-white font-black text-[16px] md:text-[18px]">S</span>
                                     </div>
                                     <div className="flex flex-col gap-1.5 md:gap-2 min-w-0 flex-1">
-                                        <span className="text-white text-[13px] md:text-[14px] font-black font-['Montserrat'] uppercase">Support (Moderator Anna)</span>
-                                        <div className="bg-[#141A20] border border-white/5 rounded-[12px] md:rounded-[16px] rounded-tl-none p-3.5 md:p-4 font-['Montserrat'] font-medium text-[14px] md:text-[15px] text-[#A1B4C6] leading-relaxed break-words overflow-hidden">
+                                        <span className="text-white text-[11px] md:text-[14px] font-black font-['Montserrat'] uppercase">Support (Moderator Anna)</span>
+                                        <div className="bg-[#141A20] border border-white/5 rounded-[12px] md:rounded-[16px] rounded-tl-none p-3 md:p-4 font-['Montserrat'] font-medium text-[13px] md:text-[15px] text-[#A1B4C6] leading-relaxed break-words overflow-hidden">
                                             Hi,<br />
                                             Thanks for reaching out.<br />
                                             We've received your request and are currently reviewing the lottery draw details.<br />
                                             Please note that payouts may take some time to process. We'll update you shortly.
                                         </div>
-                                        <span className="text-[#525D68] text-[10px] md:text-[11px] font-black font-['Montserrat'] uppercase tracking-wider">Aug 18, 2025 — 14:32</span>
+                                        <span className="text-[#525D68] text-[9px] md:text-[11px] font-black font-['Montserrat'] uppercase tracking-wider">Aug 18, 2025 — 14:32</span>
                                     </div>
                                 </div>
 
                                 {/* User Response */}
                                 <div className="flex gap-3 md:gap-4 max-w-[95%] md:max-w-[90%] self-end flex-row-reverse">
                                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-[8px] md:rounded-[10px] bg-gradient-to-br from-[#FF9D00] to-[#FF4B0F] flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(255,157,0,0.3)]">
-                                        <User className="text-white w-5 h-5 md:w-6 md:h-6" />
+                                        <User className="text-white w-4 h-4 md:w-6 md:h-6" />
                                     </div>
                                     <div className="flex flex-col gap-1.5 md:gap-2 items-end min-w-0 flex-1">
-                                        <div className="bg-[#141A20] border border-white/5 rounded-[12px] md:rounded-[16px] rounded-tr-none p-3.5 md:p-4 font-['Montserrat'] font-medium text-[14px] md:text-[15px] text-[#A1B4C6] leading-relaxed text-right break-words overflow-hidden w-full">
+                                        <div className="bg-[#141A20] border border-white/5 rounded-[12px] md:rounded-[16px] rounded-tr-none p-3 md:p-4 font-['Montserrat'] font-medium text-[13px] md:text-[15px] text-[#A1B4C6] leading-relaxed text-right break-words overflow-hidden w-full">
                                             Hello,<br />
                                             I participated in today's lottery draw, and my ticket shows as a winning one, but the prize hasn't been credited to my balance yet. Could you please check this?
                                         </div>
-                                        <span className="text-[#525D68] text-[10px] md:text-[11px] font-black font-['Montserrat'] uppercase tracking-wider">Aug 18, 2025 — 14:32</span>
+                                        <span className="text-[#525D68] text-[9px] md:text-[11px] font-black font-['Montserrat'] uppercase tracking-wider">Aug 18, 2025 — 14:32</span>
                                     </div>
                                 </div>
                             </div>

@@ -147,6 +147,7 @@ export const DesktopBannerSection = () => {
                         <img src="/figmaAssets/image-193-1.png" className="absolute bottom-10 right-10 w-8 h-8 object-contain opacity-10" alt="coin" />
 
                         <Button
+                            onClick={() => setLocation("/verify-results")}
                             className="w-full h-[52px] mt-8 text-[#0d1511] font-black text-base rounded-xl transition-all active:scale-95 border border-[#BEFF25] font-['Montserrat'] uppercase shadow-[0_4px_20px_rgba(143,216,17,0.3)]"
                             style={{ background: 'linear-gradient(180deg, #8FD811 0%, #E1FF75 100%)' }}
                         >

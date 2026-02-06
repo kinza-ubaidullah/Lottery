@@ -125,11 +125,11 @@ export const LotteryDrawCard: React.FC<LotteryDrawCardProps> = ({
                             style={{ background: 'linear-gradient(180deg, #4A1A9E 0%, #9017CF 100%)' }}
                         >
                             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,_rgba(255,255,255,0.1)_0%,_transparent_60%)] pointer-events-none" />
-                            <span className="text-white text-[15px] font-bold font-['Montserrat'] mb-1 opacity-70">Jackpot :</span>
-                            <span className="text-white text-[32px] font-black font-['Montserrat'] leading-none tracking-tight">{jackpotValue}</span>
+                            <span className="text-white text-[13px] md:text-[15px] font-bold font-['Montserrat'] mb-1 opacity-70">Jackpot :</span>
+                            <span className="text-white text-[24px] xs:text-[28px] md:text-[32px] font-black font-['Montserrat'] leading-none tracking-tight">{jackpotValue}</span>
                             <img
                                 src="/figmaAssets/gift1.png"
-                                className="absolute right-[-10%] bottom-[-5%] w-[110px] h-[110px] object-contain pointer-events-none transition-transform group-hover:scale-110 duration-500"
+                                className="absolute right-[-10%] bottom-[-5%] w-[100px] md:w-[110px] h-[100px] md:h-[110px] object-contain pointer-events-none transition-transform group-hover:scale-110 duration-500"
                                 alt="Jackpot Bag"
                             />
                         </div>
@@ -140,11 +140,11 @@ export const LotteryDrawCard: React.FC<LotteryDrawCardProps> = ({
                             style={{ background: 'linear-gradient(135deg, #7E9B0F 0%, #BDFF25 100%)' }}
                         >
                             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,_rgba(255,255,255,0.2)_0%,_transparent_60%)] pointer-events-none" />
-                            <span className="text-white text-[15px] font-bold font-['Montserrat'] mb-1 opacity-70">Prize Pool :</span>
-                            <span className="text-white text-[32px] font-black font-['Montserrat'] leading-none tracking-tight">{prizePoolValue}</span>
+                            <span className="text-white text-[13px] md:text-[15px] font-bold font-['Montserrat'] mb-1 opacity-70">Prize Pool :</span>
+                            <span className="text-white text-[24px] xs:text-[28px] md:text-[32px] font-black font-['Montserrat'] leading-none tracking-tight">{prizePoolValue}</span>
                             <img
                                 src="/figmaAssets/gift.png"
-                                className="absolute right-[-10%] bottom-[-5%] w-[110px] h-[110px] object-contain pointer-events-none transition-transform group-hover:scale-110 duration-500"
+                                className="absolute right-[-10%] bottom-[-5%] w-[100px] md:w-[110px] h-[100px] md:h-[110px] object-contain pointer-events-none transition-transform group-hover:scale-110 duration-500"
                                 alt="Prize Gift"
                             />
                         </div>

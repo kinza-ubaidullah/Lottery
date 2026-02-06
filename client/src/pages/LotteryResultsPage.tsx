@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LotteryResultsDetailCard } from "@/components/cards/LotteryResultsDetailCard";
 import { DesktopLayout } from "@/components/layout/DesktopLayout";
 
+import { BackButton } from "@/components/ui/BackButton";
+
 const completedDraws = [
     {
         blockNumber: "239504",
@@ -61,6 +63,11 @@ export const LotteryResultsPage = (): JSX.Element => {
     const content = (
         <div className="w-full flex flex-col items-center">
             {isMobile && <AppHeaderSection />}
+
+            {/* Back Button */}
+            <div className="w-full px-4 md:px-0 pt-6 flex justify-start z-20">
+                <BackButton label="Back to Home" href="/" />
+            </div>
 
             <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex flex-col gap-12"}>
 

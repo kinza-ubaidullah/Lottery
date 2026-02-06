@@ -15,6 +15,9 @@ import { FAQPage } from "./pages/FAQPage";
 import { CreateTicketPage } from "./pages/CreateTicketPage";
 import { HowItWorksPage } from "./pages/HowItWorksPage";
 import { LeadersPage } from "./pages/LeadersPage";
+import { LotteryAwardsPage } from "./pages/LotteryAwardsPage";
+import { BrowseFAQPage } from "./pages/BrowseFAQPage";
+import { VerifyResultsPage } from "./pages/VerifyResultsPage";
 
 function Router() {
   return (
@@ -25,9 +28,12 @@ function Router() {
       <Route path="/play-lottery" component={PlayLotteryPage} />
       <Route path="/lottery-results" component={LotteryResultsPage} />
       <Route path="/dashboard" component={UserDashboardPage} />
+      <Route path="/verify-results" component={VerifyResultsPage} />
       <Route path="/faq" component={FAQPage} />
+      <Route path="/browse-faq" component={BrowseFAQPage} />
       <Route path="/create-ticket" component={CreateTicketPage} />
       <Route path="/leaders" component={LeadersPage} />
+      <Route path="/lottery-awards" component={LotteryAwardsPage} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

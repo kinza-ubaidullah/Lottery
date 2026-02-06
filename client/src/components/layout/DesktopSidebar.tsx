@@ -88,7 +88,7 @@ export const DesktopSidebar = () => {
             </Link>
 
             <nav className="flex flex-col gap-2 mb-6 items-center w-full">
-                <SidebarItem variant="green" iconSrc="/figmaAssets/gift.png" label="Lucky Hour" />
+                <SidebarItem variant="green" iconSrc="/figmaAssets/gift.png" label="Lucky Hour" onClick={() => setLocation('/lottery-awards')} />
                 <SidebarItem variant="orange" iconSrc="/figmaAssets/img3.png" label="Home" isActive={isActive('/how-it-works')} onClick={() => setLocation('/how-it-works')} />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/ball8.png" label="Lottery" isActive={isActive('/play-lottery')} onClick={() => setLocation('/play-lottery')} />
                 <SidebarItem variant="purple" iconSrc="/figmaAssets/img4.png" label="Results" isActive={isActive('/lottery-results')} onClick={() => setLocation('/lottery-results')} />
