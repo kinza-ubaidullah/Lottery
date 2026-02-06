@@ -100,9 +100,9 @@ export const LeadersPage = (): JSX.Element => {
                     {/* Card 1: Gold (Left) - Styled with Orange Gradient */}
                     <div className="relative group mt-12 md:mt-0">
                         {/* 3D Floating Trophy */}
-                        <div className="absolute -top-[50px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
-                                src="/figmaAssets/img13.png"
+                                src="/figmaAssets/trophy.png"
                                 loading="lazy"
                                 className="w-full h-full object-contain drop-shadow-2xl"
                                 alt="Gold Trophy"
@@ -111,8 +111,10 @@ export const LeadersPage = (): JSX.Element => {
 
                         {/* Card Body */}
                         <div
-                            className="h-[140px] md:h-[160px] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,115,0,0.15)] relative overflow-hidden border border-[#FF7C11]/30 group-hover:border-[#FF7C11]/60 transition-all duration-300"
-                            style={{ background: 'linear-gradient(180deg, rgba(255, 115, 0, 0.06) 0%, rgba(255, 124, 17, 0.16) 100%)' }}
+                            className="w-full md:w-auto h-[140px] md:h-[160px] rounded-[12px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,115,0,0.15)] relative overflow-hidden border border-[#FF7C11]/30 group-hover:border-[#FF7C11]/60 transition-all duration-300"
+                            style={{
+                                background: 'linear-gradient(180deg, rgba(255, 115, 0, 0.06) 0%, rgba(255, 124, 17, 0.16) 100%)'
+                            }}
                         >
                             {/* Inner Glow */}
                             <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#FF7C11]/10 to-transparent opacity-60 pointer-events-none" />
@@ -120,15 +122,14 @@ export const LeadersPage = (): JSX.Element => {
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
                                 {/* User Info */}
                                 <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/30">
-                                        <img src="/figmaAssets/56bf336f3c47fe882b0dcbc4d788a5b0af194097.png" loading="lazy" className="w-full h-full object-cover" alt="User" />
+                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/30">
+                                        <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
                                 </div>
 
                                 {/* Prize Pill */}
-                                <div className="h-[36px] bg-[#3E2112] rounded-[10px] pl-2 pr-4 flex items-center gap-2 border border-[#FF7C11]/30 shadow-inner group-hover:bg-[#4A2815] transition-colors">
-                                    <div className="w-4 h-4 rounded-full bg-[#FF6B26] shadow-[0_0_10px_rgba(255,107,38,0.6)]" />
+                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
                                     <span className="text-[#F0D5C5] font-bold text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
@@ -137,28 +138,32 @@ export const LeadersPage = (): JSX.Element => {
 
                     {/* Card 2: Silver (Center) */}
                     <div className="relative group mt-12 md:mt-0">
-                        <div className="absolute -top-[50px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
-                                src="/figmaAssets/img13.png"
+                                src="/figmaAssets/trophy.png"
                                 loading="lazy"
                                 className="w-full h-full object-contain filter hue-rotate-[190deg] saturate-[0.8] brightness-125 contrast-125 drop-shadow-2xl"
                                 alt="Silver Trophy"
                             />
                         </div>
 
-                        <div className="h-[140px] md:h-[160px] bg-gradient-to-b from-[#18262C] to-[#0A0E11] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(0,0,0,0.5)] relative overflow-hidden border border-white/5 group-hover:border-[#4FD6FF]/30 transition-all duration-300">
+                        <div
+                            className="h-[140px] md:h-[160px] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(0,208,255,0.15)] relative overflow-hidden border border-[#4FD6FF]/30 group-hover:border-[#4FD6FF]/60 transition-all duration-300"
+                            style={{
+                                background: 'linear-gradient(180deg, rgba(0, 208, 255, 0.06) 0%, rgba(212, 246, 255, 0.16) 100%)'
+                            }}
+                        >
                             <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#4FD6FF]/10 to-transparent opacity-40 pointer-events-none" />
 
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.4)] border border-white/10 ring-2 ring-[#FF6B26]/20">
-                                        <img src="/figmaAssets/img10.png" loading="lazy" className="w-full h-full object-cover" alt="User" />
+                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.4)] border border-white/10 ring-2 ring-[#FF6B26]/20">
+                                        <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
                                 </div>
 
-                                <div className="h-[36px] bg-[#141E24] rounded-[10px] pl-2 pr-4 flex items-center gap-2 border border-white/10 shadow-inner group-hover:bg-[#1A262D] transition-colors">
-                                    <div className="w-4 h-4 rounded-full bg-[#FF6B26] shadow-[0_0_10px_rgba(255,107,38,0.6)]" />
+                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
                                     <span className="text-[#B4C6D6] font-bold text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
@@ -167,28 +172,33 @@ export const LeadersPage = (): JSX.Element => {
 
                     {/* Card 3: Bronze (Right) */}
                     <div className="relative group mt-12 md:mt-0">
-                        <div className="absolute -top-[50px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
+                        <div className="absolute -top-[60px] left-1/2 -translate-x-1/2 w-[120px] h-[120px] md:w-[130px] md:h-[130px] z-20 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] will-change-transform">
                             <img
-                                src="/figmaAssets/img13.png"
+                                src="/figmaAssets/trophy.png"
                                 loading="lazy"
                                 className="w-full h-full object-contain filter hue-rotate-[-40deg] sepia-[0.4] saturate-150 brightness-95 contrast-125 drop-shadow-2xl"
                                 alt="Bronze Trophy"
                             />
                         </div>
 
-                        <div className="h-[140px] md:h-[160px] bg-gradient-to-b from-[#2C1D1D] to-[#120B0B] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(0,0,0,0.5)] relative overflow-hidden border border-white/5 group-hover:border-[#CD7F32]/30 transition-all duration-300">
-                            <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#CD7F32]/10 to-transparent opacity-40 pointer-events-none" />
+                        <div
+                            className="h-[140px] md:h-[160px] rounded-[24px] p-5 pt-12 flex items-end justify-between shadow-[0_8px_30px_rgba(255,117,117,0.15)] relative overflow-hidden border border-[#FF7575]/30 group-hover:border-[#FF7575]/60 transition-all duration-300"
+                            style={{
+                                background: 'linear-gradient(180deg, rgba(255, 117, 117, 0.06) 0%, rgba(255, 102, 64, 0.16) 100%)'
+                            }}
+                        >
+                            <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-[#FF7575]/10 to-transparent opacity-40 pointer-events-none" />
 
                             <div className="relative z-10 w-full flex items-center justify-between pl-1 pr-1 pb-1">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.4)] border border-white/10 ring-2 ring-[#FF6B26]/20">
-                                        <img src="/figmaAssets/img10.png" loading="lazy" className="w-full h-full object-cover" alt="User" />
+                                    <div className="relative w-12 h-12 rounded-[12px] bg-[#FF6B26] flex items-center justify-center overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(255,107,38,0.3)] border border-white/20 ring-2 ring-[#FF6B26]/20">
+                                        <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                     </div>
-                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSSss</span>
+                                    <span className="text-white font-black font-['Montserrat'] text-[15px] uppercase tracking-wide drop-shadow-md">BONUSss</span>
                                 </div>
 
-                                <div className="h-[36px] bg-[#241616] rounded-[10px] pl-2 pr-4 flex items-center gap-2 border border-white/10 shadow-inner group-hover:bg-[#2D1C1C] transition-colors">
-                                    <div className="w-4 h-4 rounded-full bg-[#FF6B26] shadow-[0_0_10px_rgba(255,107,38,0.6)]" />
+                                {/* Prize Pill */}
+                                <div className="w-[128px] h-[44px] rounded-[8px] px-4 py-3 flex items-center justify-center gap-2 bg-white/[0.05] transition-colors">
                                     <span className="text-[#D6B4B4] font-bold text-[13px] font-['Montserrat']">569 USD</span>
                                 </div>
                             </div>
@@ -197,49 +207,56 @@ export const LeadersPage = (): JSX.Element => {
                 </div>
 
                 {/* Leaderboard Table */}
-                <Card className="w-full max-w-[1100px] mx-auto bg-[#0D1115]/50 border border-white/5 rounded-[32px] overflow-hidden shadow-2xl backdrop-blur-sm">
+                {/* Leaderboard Table */}
+                <Card className="w-full max-w-[1100px] mx-auto bg-transparent border-none shadow-none mt-8">
                     <div className="w-full overflow-x-auto custom-scrollbar">
-                        <table className="w-full">
+                        <table className="w-full border-separate border-spacing-y-2 px-2">
                             <thead>
-                                <tr className="border-b border-white/5">
-                                    <th className="px-8 py-6 text-left text-[#525D68] text-[12px] font-bold font-['Montserrat'] uppercase tracking-widest whitespace-nowrap">Place</th>
-                                    <th className="px-8 py-6 text-left text-[#525D68] text-[12px] font-bold font-['Montserrat'] uppercase tracking-widest whitespace-nowrap">User</th>
-                                    <th className="px-8 py-6 text-left text-[#525D68] text-[12px] font-bold font-['Montserrat'] uppercase tracking-widest whitespace-nowrap">Purchased</th>
-                                    <th className="px-8 py-6 text-left text-[#525D68] text-[12px] font-bold font-['Montserrat'] uppercase tracking-widest whitespace-nowrap">Tickets</th>
-                                    <th className="px-8 py-6 text-left text-[#525D68] text-[12px] font-bold font-['Montserrat'] uppercase tracking-widest whitespace-nowrap">Price</th>
+                                <tr>
+                                    <th className="px-6 py-4 text-left text-[#9FA3A9] text-[13px] font-bold font-['Montserrat'] whitespace-nowrap pl-8">Place</th>
+                                    <th className="px-6 py-4 text-left text-[#9FA3A9] text-[13px] font-bold font-['Montserrat'] whitespace-nowrap">User</th>
+                                    <th className="px-6 py-4 text-left text-[#9FA3A9] text-[13px] font-bold font-['Montserrat'] whitespace-nowrap">Purchased</th>
+                                    <th className="px-6 py-4 text-left text-[#9FA3A9] text-[13px] font-bold font-['Montserrat'] whitespace-nowrap">Tickets</th>
+                                    <th className="px-6 py-4 text-left text-[#9FA3A9] text-[13px] font-bold font-['Montserrat'] whitespace-nowrap pr-8">Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {tableData.map((row, idx) => (
-                                    <tr key={idx} className="group hover:bg-white/[0.02] transition-colors">
-                                        <td className="px-8 py-6">
-                                            <div className="w-10 h-10 rounded-full bg-[#1E262E] border border-white/5 flex items-center justify-center text-white font-black">
+                                    <tr key={idx} className="group transition-all duration-300 hover:-translate-y-1">
+                                        <td className="px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-l border-[#1E262E] group-hover:border-[#2A343E] pl-8">
+                                            <div className="w-10 h-10 rounded-[12px] bg-[#252F39] flex items-center justify-center text-white font-bold font-['Montserrat'] shadow-inner border border-white/5">
                                                 {idx + 4}
                                             </div>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-9 h-9 rounded-lg bg-[#0D1216] border border-white/5 overflow-hidden">
-                                                    <img src="/figmaAssets/img10.png" className="w-full h-full object-cover" />
+                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-10 h-10 rounded-[10px] bg-[#FF6B26] flex items-center justify-center overflow-hidden border border-white/10 shadow-lg">
+                                                    <img src="/figmaAssets/img16.png" className="w-full h-full object-contain" alt="User" />
                                                 </div>
-                                                <span className="text-white font-bold font-['Montserrat'] uppercase text-sm">{row.name}</span>
+                                                <span className="text-white font-bold font-['Montserrat'] text-[15px] tracking-wide">{row.name}</span>
                                             </div>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <div className="flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-[#BDFF25]" />
-                                                <span className="text-white font-black text-sm uppercase tracking-tight">{row.purchased}</span>
+                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-2.5 h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)]" />
+                                                <span className="text-white font-bold text-[14px] font-['Montserrat'] tracking-wide">+ {row.purchased}</span>
                                             </div>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-[#A1B4C6] font-bold text-sm uppercase">{row.tickets}</span>
+                                        <td className="px-6 py-4 bg-[#131920] border-y border-[#1E262E] group-hover:border-[#2A343E]">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="flex items-center justify-center w-6 h-6">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M19.5 8.25H4.5C3.67157 8.25 3 8.92157 3 9.75V14.25C3 15.0784 3.67157 15.75 4.5 15.75H19.5C20.3284 15.75 21 15.0784 21 14.25V9.75C21 8.92157 20.3284 8.25 19.5 8.25Z" stroke="#BDFF25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                        <path d="M8.25 8.25V15.75" stroke="#BDFF25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="2 2" />
+                                                    </svg>
+                                                </div>
+                                                <span className="text-[#A1B4C6] font-medium text-[14px] font-['Montserrat']">{row.tickets}</span>
                                             </div>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <div className="flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-[#BDFF25]" />
-                                                <span className="text-white font-black text-sm uppercase tracking-tight">{row.price}</span>
+                                        <td className="px-6 py-4 bg-[#131920] first:rounded-l-[16px] last:rounded-r-[16px] border-y border-r border-[#1E262E] group-hover:border-[#2A343E] pr-8">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-2.5 h-2.5 rounded-full bg-[#BDFF25] shadow-[0_0_8px_rgba(189,255,37,0.4)]" />
+                                                <span className="text-white font-bold text-[14px] font-['Montserrat'] tracking-wide">+ {row.price}</span>
                                             </div>
                                         </td>
                                     </tr>
