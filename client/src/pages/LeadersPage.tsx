@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
-import { Trophy, Medal, Crown, Star, User } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 import { BackButton } from "@/components/ui/BackButton";
 
 export const LeadersPage = (): JSX.Element => {
@@ -34,10 +28,8 @@ export const LeadersPage = (): JSX.Element => {
         price: "+ 569 USD"
     });
 
-    const content = (
-        <div className="w-full flex flex-col items-center" style={{ background: '#0D1216' }}>
-            {isMobile && <AppHeaderSection />}
-
+    return (
+        <div className="w-full flex flex-col items-center">
             {/* Back Button */}
             <div className="w-full px-4 md:px-10 pt-6 flex justify-start">
                 <BackButton label="Back to Home" href="/" />
@@ -45,7 +37,7 @@ export const LeadersPage = (): JSX.Element => {
 
             <main className={cn(
                 "w-full flex-1 flex flex-col gap-8 overflow-visible",
-                isMobile ? "max-w-[1280px] px-4 py-8" : "px-4 md:px-10"
+                isMobile ? "max-w-[1280px] py-8" : ""
             )}>
 
                 {/* Hero Section */}
@@ -214,7 +206,6 @@ export const LeadersPage = (): JSX.Element => {
                 </div>
 
                 {/* Leaderboard Table */}
-                {/* Leaderboard Table */}
                 <Card className="w-full max-w-[1100px] mx-auto bg-transparent border-none shadow-none mt-8">
                     <div className="w-full overflow-x-auto custom-scrollbar">
                         <table className="w-full border-separate border-spacing-y-2 px-2">
@@ -272,23 +263,7 @@ export const LeadersPage = (): JSX.Element => {
                         </table>
                     </div>
                 </Card>
-
-                <FooterLinksSection />
             </main>
         </div>
-    );
-
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                {content}
-            </div>
-        );
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

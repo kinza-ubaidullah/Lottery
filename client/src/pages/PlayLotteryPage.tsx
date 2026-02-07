@@ -12,13 +12,9 @@ import { BackButton } from "@/components/ui/BackButton";
 export const PlayLotteryPage = (): JSX.Element => {
     const isMobile = useIsMobile();
     const [, setLocation] = useLocation();
-
-    const content = (
+    return (
         <div className="w-full flex flex-col items-center">
-            {isMobile && <AppHeaderSection />}
-
-            <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex flex-col gap-12"}>
-
+            <main className={isMobile ? "w-full flex flex-col items-center gap-12" : "w-full flex flex-col gap-12"}>
                 {/* Back Button */}
                 {!isMobile && (
                     <div className="w-full flex justify-start mb-[-24px]">
@@ -60,11 +56,7 @@ export const PlayLotteryPage = (): JSX.Element => {
                     <img src="/figmaAssets/ball7.png" className="absolute bottom-[5%] right-[2%] w-16 md:w-36 z-20 drop-shadow-2xl" alt="Ball Purple 7" />
 
                     <CardContent className="relative w-full h-full p-6 md:p-12 flex flex-col justify-center z-20 overflow-hidden">
-
-
-
                         <div className="flex flex-col gap-6 md:gap-8 relative z-30 w-full md:w-[60%] h-full justify-center pt-8 md:pt-0 items-start text-left">
-
                             {/* "PLAY LOTTERY" Button */}
                             <button
                                 onClick={() => setLocation("/verify-results")}
@@ -84,7 +76,6 @@ export const PlayLotteryPage = (): JSX.Element => {
                                     Choose 6 digits and the order of characters must match
                                 </p>
                             </div>
-
                         </div>
                     </CardContent>
                 </Card>
@@ -128,24 +119,7 @@ export const PlayLotteryPage = (): JSX.Element => {
                 <div className="w-full">
                     <PreviousWinsListSection />
                 </div>
-
             </main>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                {content}
-            </div>
-        );
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

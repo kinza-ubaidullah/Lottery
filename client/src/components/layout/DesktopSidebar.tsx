@@ -78,33 +78,34 @@ export const DesktopSidebar = () => {
 
     return (
         <aside
-            className="fixed left-0 top-[72px] h-[calc(100vh-72px)] w-16 bg-[#0d1218] border-r border-white/5 flex flex-col items-center pt-8 pb-4 z-50 overflow-y-auto custom-scrollbar"
+            className="w-full h-full bg-[#0d1218] border-r border-white/5 flex flex-col items-center p-[8px] justify-between z-50 overflow-y-auto custom-scrollbar"
         >
-            {/* Logo */}
-            <Link href="/">
-                <h1 className="font-['Montserrat'] font-[900] text-white text-[10px] tracking-tight leading-none uppercase mb-8 cursor-pointer hover:opacity-80 transition-opacity">
-                    LOTTERY
-                </h1>
-            </Link>
+            <div className="flex flex-col items-center w-full gap-16">
+                {/* Logo or Top Badge could go here if needed, but the image shows Lucky Hour at top */}
+                <nav className="flex flex-col gap-2 items-center w-full">
+                    <SidebarItem variant="green" iconSrc="/figmaAssets/gift.png" label="Lucky Hour" isActive={isActive('/lottery-awards')} onClick={() => setLocation('/lottery-awards')} />
+                    <SidebarItem variant="orange" iconSrc="/figmaAssets/img3.png" label="Home" isActive={isActive('/')} onClick={() => setLocation('/')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/ball8.png" label="Lottery" isActive={isActive('/play-lottery')} onClick={() => setLocation('/play-lottery')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/img4.png" label="Results" isActive={isActive('/lottery-results')} onClick={() => setLocation('/lottery-results')} />
+                    <SidebarItem variant="orange" iconSrc="/figmaAssets/champion.png" label="Leaders" largeIcon={true} isActive={isActive('/leaders')} onClick={() => setLocation('/leaders')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/img5.png" label="Dashboard" isActive={isActive('/dashboard')} onClick={() => setLocation('/dashboard')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/image-180.png" label="FAQ" isActive={isActive('/faq')} onClick={() => setLocation('/faq')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/img6.png" label="Works" isActive={isActive('/how-it-works')} onClick={() => setLocation('/how-it-works')} />
+                    <SidebarItem variant="purple" iconSrc="/figmaAssets/frame-381.svg" label="Verify" isActive={isActive('/verify-results')} onClick={() => setLocation('/verify-results')} />
+                </nav>
+            </div>
 
-            <nav className="flex flex-col gap-2 mb-6 items-center w-full">
-                <SidebarItem variant="green" iconSrc="/figmaAssets/gift.png" label="Lucky Hour" onClick={() => setLocation('/lottery-awards')} />
-                <SidebarItem variant="orange" iconSrc="/figmaAssets/img3.png" label="Home" isActive={isActive('/how-it-works')} onClick={() => setLocation('/how-it-works')} />
-                <SidebarItem variant="purple" iconSrc="/figmaAssets/ball8.png" label="Lottery" isActive={isActive('/play-lottery')} onClick={() => setLocation('/play-lottery')} />
-                <SidebarItem variant="purple" iconSrc="/figmaAssets/img4.png" label="Results" isActive={isActive('/lottery-results')} onClick={() => setLocation('/lottery-results')} />
-                <SidebarItem variant="orange" iconSrc="/figmaAssets/champion.png" label="Leaders" largeIcon={true} isActive={isActive('/leaders')} onClick={() => setLocation('/leaders')} />
-                <SidebarItem variant="purple" iconSrc="/figmaAssets/img5.png" label="Affiliate" />
-                <SidebarItem variant="purple" iconSrc="/figmaAssets/image-180.png" label="FAQ" isActive={isActive('/faq')} onClick={() => setLocation('/faq')} />
-            </nav>
-
-            <div className="mt-auto mb-4 border-t border-white/5 pt-4 w-full flex flex-col items-center">
+            <div className="mt-20 mb-12 w-full flex flex-col items-center">
                 <div className="group flex flex-col items-center gap-1 cursor-pointer text-[#525D68] hover:text-white transition-all">
-                    <div className="w-8 h-8 rounded-lg bg-[#1A1F26] flex items-center justify-center border border-white/5 transition-all group-hover:bg-[#2a343e] mb-1">
-                        <LogOut className="w-4 h-4" />
+                    <div className="w-12 h-12 rounded-xl bg-[#1A1F26] flex items-center justify-center border border-white/5 transition-all group-hover:bg-[#2a343e] mb-1">
+                        <LogOut className="w-5 h-5" />
                     </div>
-                    <span className="text-[8px] font-black uppercase tracking-[0.1em]">Log out</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.1em]">Log out</span>
                 </div>
             </div>
+
+            {/* Bottom Spacer */}
+            <div className="h-10 shrink-0" />
         </aside>
     );
 };

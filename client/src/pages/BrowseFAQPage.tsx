@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { cn } from "@/lib/utils";
 import { Search, ChevronRight } from "lucide-react";
 import { useLocation } from "wouter";
@@ -23,15 +20,12 @@ export const BrowseFAQPage = (): JSX.Element => {
         { title: "Bonuses", count: 7 },
     ];
 
-    const content = (
-        <div className="w-full flex flex-col items-center bg-[#0D1216] min-h-screen">
-            {isMobile && <AppHeaderSection />}
-
+    return (
+        <div className="w-full flex flex-col items-center">
             <main className={cn(
                 "w-full flex-1 flex flex-col gap-8 pb-20",
-                isMobile ? "px-4 py-8" : "px-4 md:px-10"
+                isMobile ? "py-8" : ""
             )}>
-
                 {/* Back Button with Standard Component */}
                 <div className="w-full flex justify-start mt-4">
                     <BackButton label="Back to Support" href="/faq" />
@@ -256,20 +250,7 @@ export const BrowseFAQPage = (): JSX.Element => {
                         </div>
                     )}
                 </div>
-
             </main>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return content;
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

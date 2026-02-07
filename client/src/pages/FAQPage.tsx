@@ -1,28 +1,22 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { Card } from "@/components/ui/card";
-import { Ticket, Clock, Paperclip, Send, User } from "lucide-react";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
+import { Ticket, Clock, Paperclip, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-
 import { BackButton } from "@/components/ui/BackButton";
 
 export const FAQPage = (): JSX.Element => {
     const isMobile = useIsMobile();
     const [, setLocation] = useLocation();
 
-    const content = (
+    return (
         <div className="w-full flex flex-col items-center">
-            {isMobile && <AppHeaderSection />}
-
             {/* Back Button */}
             <div className="w-full px-4 md:px-10 pt-6 flex justify-start">
                 <BackButton label="Back to Dashboard" href="/dashboard" />
             </div>
 
-            <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex-1 flex flex-col gap-12 px-4 md:px-10 overflow-visible"}>
+            <main className={isMobile ? "w-full flex flex-col items-center gap-12 py-8" : "w-full flex-1 flex flex-col gap-12 px-4 md:px-10 overflow-visible"}>
 
                 {/* Top Ticket Header (Replica of provided design) */}
                 <div className="flex flex-col gap-6 w-full mt-4">
@@ -199,24 +193,7 @@ export const FAQPage = (): JSX.Element => {
                         </Card>
                     </div>
                 </div>
-
             </main>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                {content}
-            </div>
-        );
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

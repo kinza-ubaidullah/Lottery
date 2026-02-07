@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { PlusCircle, ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const HowItWorksPage = (): JSX.Element => {
     const isMobile = useIsMobile();
 
-    const content = (
-        <div className="w-full flex flex-col items-center" style={{ background: '#0D1216' }}>
-            {isMobile && <AppHeaderSection />}
-
-            <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-10 px-4 py-8 md:px-8 md:py-16" : "w-full flex-1 flex flex-col gap-10 px-4 md:px-10 overflow-visible"}>
-
+    return (
+        <div className="w-full flex flex-col items-center">
+            <main className={cn(
+                "w-full flex-1 flex flex-col gap-10 items-center justify-center overflow-visible",
+                isMobile ? "max-w-[1280px] py-8" : "px-4 md:px-10"
+            )}>
                 {/* Header Title - Centered exactly like screenshot */}
                 <div className="flex flex-col items-center gap-3 text-center mb-4 mt-8">
                     <div className="flex items-center gap-3">
@@ -127,10 +125,12 @@ export const HowItWorksPage = (): JSX.Element => {
                     </div>
 
                     {/* RIGHT: Screenshot Sidebar */}
-                    <div className="flex flex-col gap-4 sticky top-[100px] w-full lg:w-[320px]">
+                    <div className="flex flex-col gap-4 sticky top-[100px] w-full lg:w-[303px]">
                         <Card
-                            className="rounded-[32px] p-10 flex flex-col items-center justify-center gap-10 min-h-[420px] relative overflow-hidden group shadow-2xl"
+                            className="rounded-[32px] p-10 flex flex-col items-center justify-between relative overflow-hidden group shadow-2xl"
                             style={{
+                                width: '303px',
+                                height: '391px',
                                 background: 'linear-gradient(180deg, #2B1D14 0%, #000000 100%)',
                                 border: '1px solid rgba(255, 255, 255, 0.05)',
                             }}
@@ -138,23 +138,28 @@ export const HowItWorksPage = (): JSX.Element => {
                             {/* Inner Atmosphere */}
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(227,104,38,0.1)_0%,transparent_60%)] pointer-events-none" />
 
-                            <div className="relative z-10 flex flex-col items-center gap-8">
-                                <div className="w-24 h-24 rounded-[28px] bg-[#141A20] flex items-center justify-center border border-white/5 shadow-inner relative group-hover:scale-110 transition-transform duration-500">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[#E36826]/20 to-transparent rounded-[28px]" />
-                                    <div className="relative w-12 h-12">
-                                        <img src="/figmaAssets/box.png" className="w-full h-full object-contain relative z-10 brightness-200" alt="Attachment" />
-                                    </div>
-                                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#BDFF25] rounded-full flex items-center justify-center border-4 border-[#0D1115]">
-                                        <PlusCircle className="text-black w-4 h-4" />
-                                    </div>
-                                </div>
+                            {/* img31.png - Absolutely Positioned */}
+                            <img
+                                src="/figmaAssets/img31.png"
+                                alt="Decoration"
+                                style={{
+                                    position: 'absolute',
+                                    width: '70px',
+                                    height: '70px',
+                                    top: '50px',
+                                    left: '117px',
+                                    opacity: 1,
+                                    transform: 'rotate(0deg)',
+                                }}
+                            />
 
-                                <div className="flex flex-col items-center gap-2 text-center">
-                                    <h3 className="text-white text-[22px] font-black font-['Montserrat'] uppercase tracking-tight">Attach screenshots</h3>
-                                    <span className="text-[#525D68] text-[14px] font-bold font-['Montserrat'] uppercase tracking-widest">Optional</span>
-                                </div>
+                            {/* Text Content - Centered */}
+                            <div className="relative z-10 flex flex-col items-center justify-center gap-2 text-center flex-1">
+                                <h3 className="text-white text-[22px] font-black font-['Montserrat'] uppercase tracking-tight">Attach screenshots</h3>
+                                <span className="text-[#525D68] text-[14px] font-bold font-['Montserrat'] uppercase tracking-widest">Optional</span>
                             </div>
 
+                            {/* Button - Bottom */}
                             <Button
                                 className="w-full h-[56px] bg-[#1E262E] hover:bg-[#252f38] text-[#A1B4C6] hover:text-white font-black font-['Montserrat'] text-[15px] rounded-[18px] border border-white/5 uppercase transition-all shadow-lg flex items-center justify-center relative z-10"
                             >
@@ -163,23 +168,7 @@ export const HowItWorksPage = (): JSX.Element => {
                         </Card>
                     </div>
                 </div>
-
-                <FooterLinksSection />
             </main>
         </div>
-    );
-
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                {content}
-            </div>
-        );
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

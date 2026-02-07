@@ -61,7 +61,7 @@ export const PreviousWinsListSection: React.FC = () => {
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-[#BDFF25] shadow-[0_0_15px_#BDFF25] pointer-events-none" />
                   </>
                 )}
-                {tab === "Highest wins" ? "HIshest wins" : tab}
+                {tab === "Highest wins" ? "Highest wins" : tab}
               </button>
             );
           })}
@@ -84,7 +84,7 @@ export const PreviousWinsListSection: React.FC = () => {
 
           {/* Table Rows */}
           <div className="flex flex-col gap-1.5">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, idx) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, idx) => (
               <div
                 key={idx}
                 className={cn(

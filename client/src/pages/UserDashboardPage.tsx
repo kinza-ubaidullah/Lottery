@@ -886,22 +886,9 @@ export const UserDashboardPage = (): JSX.Element => {
         </div>
     );
 
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                <AppHeaderSection />
-                {content}
-                <FooterLinksSection />
-            </div>
-        );
-    }
-
     return (
-        <DesktopLayout>
-            <div className="flex flex-col w-full">
-                {content}
-                <FooterLinksSection />
-            </div>
-        </DesktopLayout>
+        <div className="flex flex-col w-full">
+            {content}
+        </div>
     );
 };

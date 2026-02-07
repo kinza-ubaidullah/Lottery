@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { X, MoreHorizontal } from "lucide-react";
-import { FaDiscord } from "react-icons/fa";
+import { X, MessageSquare, Github, MessageCircle } from "lucide-react";
 
 const footerLinks = [
     {
@@ -20,65 +18,69 @@ const footerLinks = [
 
 export const FooterLinksSection = (): JSX.Element => {
     return (
-        <footer className="w-full bg-[#12171D] pt-12 md:pt-16 pb-8 md:pb-12 border-t border-[#242d35]">
-            <div className="w-full max-w-[1280px] mx-auto px-4 md:px-12">
-                {/* Top Header: Logo & Socials */}
-                <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 mb-12 md:mb-16">
-                    {/* Logo */}
-                    <h1 className="font-['Luckiest_Guy'] text-white text-4xl md:text-5xl tracking-wide uppercase text-center md:text-left w-full md:w-auto">
-                        LOTTERY
-                    </h1>
+        <footer className="mt-20 pt-16 pb-12 border-t border-white/5 w-full bg-transparent overflow-hidden">
+            <div className="w-full max-w-[1474px] mx-auto px-6 md:px-10 lg:px-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 items-start w-full">
 
-                    {/* Social Buttons Row */}
-                    <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 w-full md:w-auto">
-                        {/* X (Twitter) */}
-                        <Button className="bg-[linear-gradient(180deg,#13191F_0%,#1F262E_100%)] hover:opacity-80 text-white rounded-[6px] w-[85px] h-[44px] border border-[#98AFC6]/20 shadow-inner p-0 flex items-center justify-center transition-colors">
-                            <X className="w-7 h-7" strokeWidth={3} />
-                        </Button>
-
-                        {/* More (Dots) */}
-                        <Button className="bg-[linear-gradient(180deg,#13191F_0%,#1F262E_100%)] hover:opacity-80 text-white rounded-[6px] w-[85px] h-[44px] border border-[#98AFC6]/20 shadow-inner p-0 flex items-center justify-center transition-colors">
-                            <MoreHorizontal className="w-7 h-7" strokeWidth={3} />
-                        </Button>
-
-                        {/* Discord */}
-                        <Button className="bg-[linear-gradient(180deg,#13191F_0%,#1F262E_100%)] hover:opacity-80 text-white rounded-[6px] w-[85px] h-[44px] border border-[#98AFC6]/20 shadow-inner p-0 flex items-center justify-center transition-colors">
-                            <FaDiscord className="w-7 h-7" />
-                        </Button>
-
-                        {/* Support Button */}
-                        <Button className="bg-[linear-gradient(180deg,#3F4E5E_0%,#28323D_100%)] hover:opacity-90 text-white font-bold rounded-[6px] h-[44px] px-6 border border-white/10 shadow-lg ml-1 text-sm tracking-wide flex items-center">
-                            Support
-                        </Button>
+                    {/* Column 1: Brand Section */}
+                    <div className="flex flex-col">
+                        <div className="text-3xl font-black text-white tracking-tighter mb-8 italic select-none">LOTTERY</div>
+                        <div className="space-y-1">
+                            <p className="text-[#525D68] text-[9.5px] font-bold uppercase tracking-tight">
+                                © 2025 FIRSTBTCLOTTERY.
+                            </p>
+                            <p className="text-[#525D68] text-[9.5px] font-bold uppercase tracking-tight">
+                                ALL RIGHTS RESERVED.
+                            </p>
+                            <p className="text-[#525D68] text-[9.5px] font-bold uppercase tracking-tight">
+                                INFO CHOICE TRADE
+                            </p>
+                            <p className="text-[#525D68] text-[9.5px] font-bold uppercase tracking-tight">
+                                CONSULTING SERVICES LTD.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                {/* Links Columns */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mb-16 max-w-3xl mx-auto md:mx-0">
+                    {/* Columns 2, 3, 4: Link Categories (Equal Gaps) */}
                     {footerLinks.map((section, idx) => (
-                        <div key={idx} className="flex flex-col gap-6 text-center md:text-left">
-                            <h3 className="text-white font-bold text-xl md:text-2xl">{section.title}</h3>
-                            <ul className="flex flex-col gap-4">
+                        <div key={idx} className="flex flex-col min-w-0">
+                            <h4 className="text-white font-[900] text-[12px] mb-6 uppercase tracking-[0.12em] whitespace-nowrap">
+                                {section.title}
+                            </h4>
+                            <ul className="space-y-4 text-[10px] text-[#525D68] font-black uppercase tracking-wider">
                                 {section.links.map((link, lIdx) => (
-                                    <li key={lIdx}>
-                                        <a href="#" className="text-[#94A3B8] hover:text-white transition-colors text-base md:text-lg font-medium">
-                                            {link}
-                                        </a>
+                                    <li key={lIdx} className="hover:text-white cursor-pointer transition-colors truncate">
+                                        {link}
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     ))}
-                </div>
 
-                <Separator className="bg-white/5 mb-10" />
+                    {/* Column 5: Action Section */}
+                    <div className="flex flex-col items-start lg:items-end gap-6 w-full">
+                        <div className="flex items-center bg-[#1A1C21] p-1.5 rounded-xl border border-white/5 gap-2 w-fit">
+                            {[
+                                { icon: <X size={15} /> },
+                                { icon: <MessageCircle size={15} /> },
+                                { icon: <MessageSquare size={15} /> }
+                            ].map((social, i) => (
+                                <div
+                                    key={i}
+                                    className="w-9 h-9 bg-[#24272E] flex items-center justify-center rounded-lg hover:bg-[#2D333D] cursor-pointer transition-colors border border-white/5 group"
+                                >
+                                    <div className="text-gray-400 group-hover:text-white">
+                                        {social.icon}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
-                {/* Copyright */}
-                <div className="flex flex-col gap-5 items-center md:items-start text-center md:text-left">
-                    <p className="text-[#525c68] text-sm md:text-base font-bold tracking-tight">
-                        © 2025 FIRSTBTCLOTTERY. All rights reserved. INFO CHOICE TRADE CONSULTING SERVICES Ltd.
-                    </p>
-                    {/* Removed Bug Bounty and Audits links as requested */}
+                        <Button className="w-full lg:w-44 h-12 bg-[#2D333D] hover:bg-[#3D444F] text-white font-black text-[13px] px-6 rounded-2xl uppercase transition-all tracking-widest border border-white/5 shadow-none">
+                            Support
+                        </Button>
+                    </div>
+
                 </div>
             </div>
         </footer>

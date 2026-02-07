@@ -1,9 +1,6 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
 import { cn } from "@/lib/utils";
-import { Search, ChevronDown, CheckCircle2 } from "lucide-react";
+import { ChevronDown, CheckCircle2 } from "lucide-react";
 import { BackButton } from "@/components/ui/BackButton";
 
 export const VerifyResultsPage = (): JSX.Element => {
@@ -16,18 +13,15 @@ export const VerifyResultsPage = (): JSX.Element => {
         winningNumbers: ["J", "4", "b", "6", "J", "0"]
     };
 
-    const content = (
-        <div className="w-full flex flex-col items-center bg-[#0D1216] min-h-screen">
-            {isMobile && <AppHeaderSection />}
-
+    return (
+        <div className="w-full flex flex-col items-center">
             <main className={cn(
                 "w-full flex-1 flex flex-col gap-6 pb-20",
-                isMobile ? "px-4 py-8" : "px-4 md:px-10"
+                isMobile ? "py-8" : ""
             )}>
-
                 {/* Back Button */}
                 <div className="w-full flex justify-start mt-4">
-                    <BackButton label="Back to Play" />
+                    <BackButton label="Back to Play" href="/play-lottery" />
                 </div>
 
                 {/* Banner Section - Refined to match User Screenshot */}
@@ -229,20 +223,7 @@ export const VerifyResultsPage = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-
             </main>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return content;
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

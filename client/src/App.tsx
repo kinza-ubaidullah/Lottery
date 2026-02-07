@@ -40,13 +40,17 @@ function Router() {
   );
 }
 
+import { MainLayout } from "@/components/layout/MainLayout";
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Preloader />
         <Toaster />
-        <Router />
+        <MainLayout>
+          <Router />
+        </MainLayout>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Card } from "@/components/ui/card";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { cn } from "@/lib/utils";
-import { DesktopLayout } from "@/components/layout/DesktopLayout";
-
 import { BackButton } from "@/components/ui/BackButton";
 
 export const LotteryAwardsPage = () => {
     const isMobile = useIsMobile();
     const [activeTab, setActiveTab] = useState("all"); // all, my, special
 
-    const content = (
-        <div className="w-full flex flex-col items-center bg-[#0D1216] min-h-screen">
+    return (
+        <div className="w-full flex flex-col items-center">
             {/* Back Button */}
             <div className="w-full max-w-[1240px] px-4 pt-6 flex justify-start">
                 <BackButton label="Back to Dashboard" href="/dashboard" />
@@ -209,18 +205,6 @@ export const LotteryAwardsPage = () => {
                     ))}
                 </div>
             </div>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return content;
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };

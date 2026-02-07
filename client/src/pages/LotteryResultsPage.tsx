@@ -1,6 +1,5 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { AppHeaderSection } from "./sections/AppHeaderSection";
-import { FooterLinksSection } from "./sections/FooterLinksSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { LotteryDrawCard } from "@/components/cards/LotteryDrawCard";
 import { PreviousWinsListSection } from "./sections/PreviousWinsListSection";
@@ -60,16 +59,14 @@ const completedDraws = [
 export const LotteryResultsPage = (): JSX.Element => {
     const isMobile = useIsMobile();
 
-    const content = (
+    return (
         <div className="w-full flex flex-col items-center">
-            {isMobile && <AppHeaderSection />}
-
             {/* Back Button */}
             <div className="w-full px-4 md:px-0 pt-6 flex justify-start z-20">
                 <BackButton label="Back to Home" href="/" />
             </div>
 
-            <main className={isMobile ? "w-full max-w-[1280px] flex flex-col items-center gap-12 px-4 py-8 md:px-8 md:py-16" : "w-full flex flex-col gap-12"}>
+            <main className={isMobile ? "w-full flex flex-col items-center gap-12 py-8" : "w-full flex flex-col gap-12"}>
 
                 {/* Results Banner */}
                 <Card
@@ -178,22 +175,6 @@ export const LotteryResultsPage = (): JSX.Element => {
                 <PreviousWinsListSection />
 
             </main>
-
-            <FooterLinksSection />
         </div>
-    );
-
-    if (isMobile) {
-        return (
-            <div className="bg-[#12171d] overflow-x-hidden w-full min-h-screen relative flex flex-col items-center">
-                {content}
-            </div>
-        );
-    }
-
-    return (
-        <DesktopLayout>
-            {content}
-        </DesktopLayout>
     );
 };
